@@ -13,7 +13,7 @@
 version: "3.3"
 
 services:
-  db:
+  postgres:
     image: postgres:13
     environment:
       POSTGRES_DB: public_involvement
@@ -38,7 +38,7 @@ services:
     environment:
       PANTHEON_ENVIRONMENT: dev
     ports:
-      - "80:80"
+      - "8080:80"
     volumes:
       - ".:/var/www/html:cached"
     networks:
@@ -52,6 +52,10 @@ services:
       context: .
     user: www-data
     environment:
+      DATABASE_HOST: postgres
+      DATABASE_NAME: public_involvement
+      DATABASE_USER: public_involvement
+      DATABASE_PASSWORD: public_involvement
       CACHE_HOST: redis
       CACHE_PORT: 6379
       DRUPAL_ENV: development
