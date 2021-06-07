@@ -1,4 +1,4 @@
-uuid: 1067edba-4788-4379-ba39-dff28f89551a
+uuid: 008ec467-988d-4789-ba4d-ce1bef5ce128
 langcode: en
 status: true
 dependencies:
@@ -19,6 +19,7 @@ settings:
           items:
             - Bold
             - Italic
+            - Paste
         -
           name: Linking
           items:
@@ -42,7 +43,15 @@ settings:
           name: Tools
           items:
             - Source
+            - Language
+        -
+          name: Other
+          items:
+            - Undo
+            - Maximize
   plugins:
+    language:
+      language_list: un
     stylescombo:
       styles: ''
 image_upload:
@@ -51,5 +60,5 @@ image_upload:
   directory: inline-images
   max_size: ''
   max_dimensions:
-    width: 0
-    height: 0
+    width: null
+    height: null

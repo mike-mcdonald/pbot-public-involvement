@@ -1,4 +1,4 @@
-uuid: dd76c049-773a-4bfc-87c7-ac007a75f215
+uuid: 7f28d98e-a2e6-4ca3-8f6b-539d16e00bc3
 langcode: en
 status: true
 dependencies: {  }
@@ -7,7 +7,8 @@ _core:
 id: feedback
 label: 'Website feedback'
 recipients:
-  - PBOTApplicationSupport@portlandoregon.gov
+  - pbot@pbot.gov
+  - clayton.early@portlandoregon.gov
 reply: ''
 weight: 0
 message: 'Your message has been sent.'

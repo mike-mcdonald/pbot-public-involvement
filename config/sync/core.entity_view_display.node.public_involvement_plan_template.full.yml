@@ -1,0 +1,232 @@
+uuid: 6fd35432-21f1-4a07-a3ac-01da8457895f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.public_involvement_plan_template.field_budget
+    - field.field.node.public_involvement_plan_template.field_consultant
+    - field.field.node.public_involvement_plan_template.field_div_sect
+    - field.field.node.public_involvement_plan_template.field_impact_level
+    - field.field.node.public_involvement_plan_template.field_interest_level
+    - field.field.node.public_involvement_plan_template.field_legal_requirements
+    - field.field.node.public_involvement_plan_template.field_legal_requirements_y_n_
+    - field.field.node.public_involvement_plan_template.field_partners_government_organi
+    - field.field.node.public_involvement_plan_template.field_please_describe_the_overal
+    - field.field.node.public_involvement_plan_template.field_project_manger_key_staff
+    - field.field.node.public_involvement_plan_template.field_project_website_link
+    - field.field.node.public_involvement_plan_template.field_promise_to_the_public
+    - field.field.node.public_involvement_plan_template.field_public_input_is_needed_for
+    - field.field.node.public_involvement_plan_template.field_public_involvement_timefra
+    - field.field.node.public_involvement_plan_template.field_public_involvement_will_ad
+    - field.field.node.public_involvement_plan_template.field_qual_promise_to_public
+    - field.field.node.public_involvement_plan_template.field_stakeholder_involvement_st
+    - field.field.node.public_involvement_plan_template.field_tags
+    - field.field.node.public_involvement_plan_template.field_what_are_the_intended_outc
+    - field.field.node.public_involvement_plan_template.field_what_is_the_impact_of_this
+    - field.field.node.public_involvement_plan_template.field_what_is_the_interest_in_th
+    - field.field.node.public_involvement_plan_template.field_what_key_decisions_are_bei
+    - node.type.public_involvement_plan_template
+  module:
+    - ds
+    - options
+    - paragraphs
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      content:
+        - field_project_manger_key_staff
+        - field_partners_government_organi
+        - field_consultant
+        - field_div_sect
+        - field_please_describe_the_overal
+        - field_what_key_decisions_are_bei
+        - field_legal_requirements_y_n_
+        - field_legal_requirements
+        - field_impact_level
+        - field_what_is_the_impact_of_this
+        - field_interest_level
+        - field_what_is_the_interest_in_th
+        - field_what_are_the_intended_outc
+        - field_promise_to_the_public
+        - field_qual_promise_to_public
+        - field_public_involvement_will_ad
+        - field_public_input_is_needed_for
+        - field_project_website_link
+        - field_tags
+        - field_public_involvement_timefra
+        - field_stakeholder_involvement_st
+        - field_budget
+id: node.public_involvement_plan_template.full
+targetEntityType: node
+bundle: public_involvement_plan_template
+mode: full
+content:
+  field_budget:
+    type: paragraph_summary
+    weight: 21
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_consultant:
+    type: basic_string
+    weight: 2
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_div_sect:
+    type: entity_reference_label
+    weight: 3
+    region: content
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+  field_impact_level:
+    type: entity_reference_entity_id
+    weight: 8
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_interest_level:
+    type: entity_reference_entity_id
+    weight: 10
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_legal_requirements:
+    type: basic_string
+    weight: 7
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_legal_requirements_y_n_:
+    type: list_key
+    weight: 6
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_partners_government_organi:
+    type: basic_string
+    weight: 1
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_please_describe_the_overal:
+    type: basic_string
+    weight: 4
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_project_manger_key_staff:
+    type: basic_string
+    weight: 0
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_project_website_link:
+    type: string
+    weight: 17
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_promise_to_the_public:
+    type: list_default
+    weight: 13
+    region: content
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+  field_public_input_is_needed_for:
+    type: basic_string
+    weight: 16
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_public_involvement_timefra:
+    type: paragraph_summary
+    weight: 19
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_public_involvement_will_ad:
+    type: basic_string
+    weight: 15
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_qual_promise_to_public:
+    type: basic_string
+    weight: 14
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_stakeholder_involvement_st:
+    type: paragraph_summary
+    weight: 20
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_tags:
+    type: entity_reference_entity_view
+    weight: 18
+    region: content
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+  field_what_are_the_intended_outc:
+    type: basic_string
+    weight: 12
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_what_is_the_impact_of_this:
+    type: basic_string
+    weight: 9
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_what_is_the_interest_in_th:
+    type: basic_string
+    weight: 11
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_what_key_decisions_are_bei:
+    type: basic_string
+    weight: 5
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_related_documents: true
+  links: true

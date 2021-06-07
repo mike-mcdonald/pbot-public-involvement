@@ -1,4 +1,4 @@
-uuid: 9c4d9471-39c6-4670-a606-e00fa2a3bd9e
+uuid: b7bb4c4c-8561-4a6c-b87b-42fec5b54f2b
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     - file
     - user
 _core:
-  default_config_hash: gLmoA0yjvlXfMRp9ihOhRKSSQQlbdLdvpDkbVwkYPrg
+  default_config_hash: rRWxAX-IQkJ5viACQRovRkC784EyCl9493GU_G23n2Q
 id: files
 label: Files
 module: file
@@ -731,7 +731,7 @@ display:
         - url
         - url.query_args
         - user.permissions
-      max-age: -1
+      max-age: 0
       tags: {  }
   page_1:
     display_plugin: page
@@ -768,7 +768,7 @@ display:
         - url
         - url.query_args
         - user.permissions
-      max-age: -1
+      max-age: 0
       tags: {  }
   page_2:
     display_plugin: page
@@ -1125,5 +1125,5 @@ display:
         - url
         - url.query_args
         - user.permissions
-      max-age: -1
+      max-age: 0
       tags: {  }

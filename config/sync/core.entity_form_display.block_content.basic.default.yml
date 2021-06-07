@@ -1,4 +1,4 @@
-uuid: 23f7f0a3-eb89-41eb-b981-4c95eb7076de
+uuid: fd14251d-602f-42f3-90da-5119d0faf2d5
 langcode: en
 status: true
 dependencies:
@@ -7,8 +7,13 @@ dependencies:
     - field.field.block_content.basic.body
   module:
     - text
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
 _core:
-  default_config_hash: jAps3FCxvKecABS_tgExbhCZrBLQB3bNPWw18WjE3ss
+  default_config_hash: e1Nu5xXAuF_QplbBUhQBPLnYWvHtDX0MkZnpuCiY8uM
 id: block_content.basic.default
 targetEntityType: block_content
 bundle: basic
@@ -22,7 +27,6 @@ content:
       rows: 9
       summary_rows: 3
       placeholder: ''
-      show_summary: false
     third_party_settings: {  }
   info:
     type: string_textfield

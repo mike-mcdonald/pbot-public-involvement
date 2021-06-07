@@ -1,12 +1,18 @@
-uuid: 3ba6fe9b-0c73-4bcb-84d2-b7e033b48d75
+uuid: 213fe644-e572-4a71-a433-f2ddd22609ab
 langcode: en
 status: true
 dependencies:
   config:
     - comment.type.comment
     - field.field.comment.comment.comment_body
+    - field.field.comment.comment.field_email
   module:
     - text
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
 _core:
   default_config_hash: I0Pa0aQvT_jawlPo9oz4FE3h_ickc55dYKTPl6gILes
 id: comment.comment.default
@@ -25,6 +31,14 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
+  field_email:
+    weight: 12
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
   subject:
     type: string_textfield
     weight: 10

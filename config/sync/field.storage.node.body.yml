@@ -1,4 +1,4 @@
-uuid: 9be8b384-1898-4999-97f8-3345010afbfd
+uuid: 53bc2350-7a78-43ba-9bd0-42a458d4021b
 langcode: en
 status: true
 dependencies:
@@ -14,7 +14,7 @@ type: text_with_summary
 settings: {  }
 module: text
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: true

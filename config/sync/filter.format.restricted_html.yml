@@ -1,12 +1,12 @@
-uuid: d763c53c-a0bd-4095-9ba8-3e6ddbe905d9
+uuid: c6a9d2de-0abf-42c1-9eed-fbd3c6a28cee
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: oz6NyPDAB4HB6N9hgH2LwNVtCd-sXbMG1fbn5KsRIDI
+  default_config_hash: KUjJ8Ti_ZJSlhGM88E_mhJP-8mmQRNUB6RFof615Kt0
 name: 'Restricted HTML'
 format: restricted_html
-weight: 1
+weight: 0
 filters:
   filter_html:
     id: filter_html

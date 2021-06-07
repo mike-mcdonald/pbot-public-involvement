@@ -1,4 +1,4 @@
-uuid: 282eab72-75e8-4ef1-bfde-d93f8d7c250d
+uuid: fe8cc963-b498-4db7-9a31-8ad5665f2bd3
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     - dblog
     - user
 _core:
-  default_config_hash: QFezQ4TbnTzUO15iTk6-flc68pzr437FjP3nJ_qXM9M
+  default_config_hash: 3QZ9apklK6mQ7BzodmxzOxqO---2BCPtOLE3k9eQ0Is
 id: watchdog
 label: Watchdog
 module: views
@@ -86,6 +86,8 @@ display:
             link: link
           info:
             nothing:
+              sortable: false
+              default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
@@ -656,16 +658,18 @@ display:
       footer: {  }
       empty:
         area:
-          id: area_text_custom
+          id: area
           table: views
-          field: area_text_custom
+          field: area
           relationship: none
           group_type: group
-          admin_label: 'No log messages available.'
+          admin_label: ''
           empty: true
           tokenize: false
-          content: 'No log messages available.'
-          plugin_id: text_custom
+          content:
+            value: 'No log messages available.'
+            format: basic_html
+          plugin_id: text
       relationships:
         uid:
           id: uid
@@ -684,7 +688,7 @@ display:
           1: AND
       css_class: admin-dblog
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -701,7 +705,7 @@ display:
       display_extenders: {  }
       path: admin/reports/dblog
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
