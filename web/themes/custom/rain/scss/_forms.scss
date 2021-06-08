@@ -54,13 +54,13 @@
 
   [type="checkbox"] {
     &:focus {
-        @apply shadow-outline;
+        @apply ring;
     }
   }
 
   [type="radio"] {
     &:focus {
-      @apply shadow-outline;
+      @apply ring;
 
     }
   }
