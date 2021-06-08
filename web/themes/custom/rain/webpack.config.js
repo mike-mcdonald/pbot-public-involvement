@@ -10,7 +10,7 @@ module.exports = (env, argv) => ({
       './scss/style.scss'
     ])
   },
-  mode: process.env.NODE_ENV,
+  target: "web",
   devtool: 'source-map',
   output: {
     path: path.resolve(__dirname),
@@ -50,12 +50,11 @@ module.exports = (env, argv) => ({
           {
             loader: 'postcss-loader',
             options: {
-              sourceMap: true,
-              config: {
-                path: './postcss.config.js',
-                ctx: {
-                  mode: argv.mode
-                }
+              postcssOptions: {
+                plugins: [
+                  require('tailwindcss'),
+                  require('autoprefixer'),
+                ],
               }
             }
           },
