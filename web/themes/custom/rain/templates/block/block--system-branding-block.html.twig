@@ -25,7 +25,7 @@
 {% set link_attributes = link_attributes|default(create_attribute()) %}
 {%
   set link_classes = link_classes|default([
-    'text-2xl',
+    'text-xl',
     'font-semibold',
   ])
 %}
@@ -34,19 +34,25 @@
 {%
   set logo_classes = logo_classes|default([
     'h-8',
-    'w-24',
+    'w-16',
     'mr-2',
   ])
 %}
 
 {% block content %}
-  {% if site_logo %}
-    <a{{ logo_attributes.addClass(logo_classes) }} href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
-      {% include active_theme_path() ~ '/logo.svg' %}
-    </a>
-  {% endif %}
-  {% if site_name %}
-    <a{{ link_attributes.addClass(link_classes) }} href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">{{ site_name }}</a>
-  {% endif %}
-  {{ site_slogan }}
+	<a{{create_attribute().addClass(block_classes)}} href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
+		{% if site_logo %}
+			{% include active_theme_path() ~ '/logo.svg' %}
+		{% endif %}
+		{% if site_name or site_slogan %}
+			<div class="flex flex-col">
+				{% if site_name %}
+					<span {{link_attributes.addClass(link_classes)}}>{{ site_name }}</span>
+				{% endif %}
+				{% if site_slogan %}
+					<span class="text-sm italic">{{ site_slogan }}</span>
+				{% endif %}
+			</div>
+		{% endif %}
+	</a>
 {% endblock %}

@@ -109,9 +109,9 @@
 	{% if display_submitted %}
 		<footer>
 			{{ author_picture }}
-			<div{{author_attributes}}>
-				{% trans %}By
-				{{ author_name }}{% endtrans %}
+			<div{{author_attributes.addClass(['flex','space-x-1'])}}>
+				<span>{% trans %}By{% endtrans %}</span>
+				{{ author_name }}
 				{{ metadata }}
 			</div>
 		</footer>

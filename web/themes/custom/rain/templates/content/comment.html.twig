@@ -64,37 +64,37 @@
  * @see template_preprocess_comment()
  */
 #}
-
-<article{{ attributes.addClass('js-comment') }}>
-  {#
-    Hide the "new" indicator by default, let a piece of JavaScript ask the
-    server which comments are new for the user. Rendering the final "new"
-    indicator here would break the render cache.
-  #}
-  <mark class="hidden" data-comment-timestamp="{{ new_indicator_timestamp }}"></mark>
-
-  <footer>
-    {{ user_picture }}
-    <p>{{ submitted }}</p>
-
-    {#
-      Indicate the semantic relationship between parent and child comments for
-      accessibility. The list is difficult to navigate in a screen reader
-      without this information.
-    #}
-    {% if parent %}
-      <p class="visually-hidden">{{ parent }}</p>
-    {% endif %}
-
-    {{ permalink }}
-  </footer>
-
-  <div{{ content_attributes }}>
-    {% if title %}
-      {{ title_prefix }}
-      <h3{{ title_attributes }}>{{ title }}</h3>
-      {{ title_suffix }}
-    {% endif %}
-    {{ content }}
-  </div>
+{{ devel_breakpoint() }}
+<article{{attributes.addClass(['js-comment','my-8'])}}>
+	{#
+	  Hide the "new" indicator by default, let a piece of JavaScript ask the
+	  server which comments are new for the user. Rendering the final "new"
+	  indicator here would break the render cache.
+	#}
+	<mark class="hidden px-2 py-1 rounded shadow" data-comment-timestamp="{{ new_indicator_timestamp }}"></mark>
+	{% if title %}
+		{{ title_prefix }}
+		<h3{{title_attributes.addClass(['flex','items-center','space-x-1'])}}>
+			<span>{{ title }}</span>
+			<a class="border-0" href="{{ permalink.link['#url'].toString() }}">
+				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewbox="0 0 20 20" fill="currentColor">
+					<path fill-rule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clip-rule="evenodd"/>
+				</svg>
+			</a>
+		</h3>
+		{{ title_suffix }}
+	{% endif %}
+	<footer>
+		{{ user_picture }}
+		<p class="text-sm italic">{{ submitted }}</p>
+		{#
+			Indicate the semantic relationship between parent and child comments for
+			accessibility. The list is difficult to navigate in a screen reader
+			without this information.
+		#}
+		{% if parent %}
+			<p class="visually-hidden">{{ parent }}</p>
+		{% endif %}
+	</footer>
+	<div{{content_attributes}}>{{ content }}</div>
 </article>
