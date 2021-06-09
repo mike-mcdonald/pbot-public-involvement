@@ -75,6 +75,11 @@ RUN apt-get update \
   mkdir -p /var/www/.composer; \
   chown -R www-data:www-data /var/www/.composer; \
   fi \
+  # Create drush and drupal console symlink so it can be accessed from anywhere in the container
+  && ln -s /var/www/html/vendor/drush/drush/drush /usr/local/bin/drush \
+  && ln -s /var/www/html/vendor/drupal/console/bin/drupal /usr/local/bin/drupal \
+  # Change the shell for login as www-data user
+  && chsh -s /bin/bash www-data \
   # Clean up
   && apt-get -y clean \
   && apt-get -y autoclean \
@@ -83,26 +88,6 @@ RUN apt-get update \
   && rm -rf /var/lib/cache/* \
   && rm -rf /var/lib/log/* \
   && rm -rf /tmp/*
-
-# set recommended opcache settings
-# see https://secure.php.net/manual/en/opcache.installation.php
-RUN { \
-  echo 'opcache.memory_consumption=128'; \
-  echo 'opcache.interned_strings_buffer=8'; \
-  echo 'opcache.max_accelerated_files=4000'; \
-  echo 'opcache.revalidate_freq=60'; \
-  echo 'opcache.fast_shutdown=1'; \
-  echo 'opcache.enable_cli=1'; \
-  } > /usr/local/etc/php/conf.d/opcache-recommended.ini
-
-COPY . /var/www/html
-
-# install drush and drupal console symlink so it can be accessed from anywhere in the container
-RUN ln -s /var/www/html/vendor/drush/drush/drush /usr/local/bin/drush \
-  && ln -s /var/www/html/vendor/drupal/console/bin/drupal /usr/local/bin/drupal
-
-# Change the shell for login as www-data user
-RUN chsh -s /bin/bash www-data
 
 # when you run bash, this is where you'll start, and where drush will be able to run from.
 WORKDIR /var/www/html
