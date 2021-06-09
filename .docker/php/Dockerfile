@@ -1,7 +1,7 @@
 FROM php:7.4-fpm
 
-ARG INSTALL_XDEBUG=false
-ARG REMOVE_COMPOSER=true
+ARG INSTALL_XDEBUG="false"
+ARG INSTALL_COMPOSER="true"
 
 # Get the repository set up for postgresql
 # Required to use GPG below
@@ -43,16 +43,15 @@ RUN apt-get update \
   && pecl install memcached \
   && pecl install oauth \
   && pecl install redis \
-  && if ${INSTALL_XDEBUG}; then pecl install xdebug; fi \
+  && if [ "${INSTALL_XDEBUG}" = "true" ]; then pecl install xdebug; fi \
   && docker-php-ext-configure gd --with-freetype --with-jpeg \
   && docker-php-ext-configure imap --with-imap-ssl --with-kerberos \
-  && docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu/ \
   && docker-php-ext-enable apcu \
   && docker-php-ext-enable imagick \
   && docker-php-ext-enable memcached \
   && docker-php-ext-enable oauth \
   && docker-php-ext-enable redis \
-  && if ${INSTALL_XDEBUG}; then docker-php-ext-enable xdebug; fi \
+  && if [ "${INSTALL_XDEBUG}" = "true" ]; then docker-php-ext-enable xdebug; fi \
   && docker-php-ext-install \
   bcmath \
   bz2 \
@@ -60,8 +59,6 @@ RUN apt-get update \
   exif \
   gd \
   imap \
-  ldap \
-  mysqli \
   opcache \
   pdo \
   pdo_pgsql \
@@ -69,12 +66,15 @@ RUN apt-get update \
   intl \
   gettext \
   # Install composer
-  && php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
-  && php -r "if (hash_file('sha384', 'composer-setup.php') === '756890a4488ce9024fc62c56153228907f1545c228516cbf63f885e036d37e9a59d27d63f46af1d4d07ee0f76181c7d3') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" \
-  && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
-  && php -r "unlink('composer-setup.php');" \
-  && mkdir -p /var/www/.composer \
-  && chown -R www-data:www-data /var/www/.composer \
+  && if [ "${INSTALL_COMPOSER}" = "true" ]; \
+  then \
+  php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"; \
+  php -r "if (hash_file('sha384', 'composer-setup.php') === '756890a4488ce9024fc62c56153228907f1545c228516cbf63f885e036d37e9a59d27d63f46af1d4d07ee0f76181c7d3') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"; \
+  php composer-setup.php --install-dir=/usr/local/bin --filename=composer; \
+  php -r "unlink('composer-setup.php');"; \
+  mkdir -p /var/www/.composer; \
+  chown -R www-data:www-data /var/www/.composer; \
+  fi \
   # Clean up
   && apt-get -y clean \
   && apt-get -y autoclean \
