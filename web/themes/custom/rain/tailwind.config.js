@@ -62,6 +62,7 @@ module.exports = {
   purge: [
     'templates/**/*.html.twig',
     'layouts/**/*.html.twig',
+    '**/*.svg',
     'js/**/*.js',
     'rain.theme'
   ],
