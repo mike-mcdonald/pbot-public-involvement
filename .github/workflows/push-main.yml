@@ -1,0 +1,62 @@
+name: Push on main
+
+on:
+  push:
+    branches: [main]
+
+env:
+  COMPOSER_MEMORY_LIMIT: -1
+  SIMPLETEST_DB: sqlite://tmp/site.sqlite
+  SIMPLETEST_BASE_URL: "http://127.0.0.1:8080"
+
+jobs:
+  build:
+    runs-on: "ubuntu-20.04"
+    strategy:
+      fail-fast: false
+      matrix:
+        php-version: ["7.4"]
+        drupal-release: ["stable"]
+        composer-channel: ["stable"]
+    steps:
+      - name: Dump matrix context
+        env:
+          MATRIX_CONTEXT: ${{ toJSON(matrix) }}
+        run: echo "$MATRIX_CONTEXT"
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Cache composer packages
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-composer-packages
+        with:
+          path: |
+            ~/vendor
+            ~/web/core
+            ~/web/modules/contrib
+            ~/web/themes/contrib
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('~/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          extensions: gd
+
+      - name: Update composer
+        run: composer --verbose self-update --${{ matrix.composer-channel }}
+
+      - name: Dump composer verson
+        run: composer --version
+
+      - name: Validate composer.json
+        run: composer --verbose validate
+
+      - name: Install dependencies
+        run: composer --verbose --no-dev install
