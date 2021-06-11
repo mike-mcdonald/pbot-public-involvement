@@ -10,3 +10,17 @@ docker-compose build
 ```
 This will build any images defined as building from Dockerfiles in the `docker-compose.yml` file.
 ### Starting services
+```bash
+docker compose up
+```
+or
+```bash
+docker-compose up
+```
+>NOTE: `docker compose` style commands are available in new installations of Docker Desktop. There are issues with this current implementation that prevent `docker compose build` from working properly though.
+
+Once the services are running and you begin to see output, you may navigate to http://localhost:8080 to view the application running.
+### Stopping services
+```bash
+docker compose down
+```
