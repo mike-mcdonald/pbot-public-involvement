@@ -33,11 +33,11 @@ jobs:
           cache-name: cache-composer-packages
         with:
           path: |
-            ~/vendor
-            ~/web/core
-            ~/web/modules/contrib
-            ~/web/themes/contrib
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('~/composer.lock') }}
+            ./vendor
+            ./web/core
+            ./web/modules/contrib
+            ./web/themes/contrib
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('./composer.lock') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
