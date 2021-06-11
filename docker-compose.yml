@@ -33,7 +33,6 @@ services:
 
   web:
     build:
-      dockerfile: Dockerfile
       context: .docker/nginx
     environment:
       PANTHEON_ENVIRONMENT: dev
@@ -50,6 +49,9 @@ services:
     build:
       dockerfile: .docker/php/Dockerfile
       context: .
+      args:
+        INSTALL_XDEBUG: "true"
+        INSTALL_COMPOSER: "true"
     user: www-data
     environment:
       DATABASE_HOST: postgres
