@@ -7,8 +7,6 @@ on:
 env:
   REPOSITORY: pbotapps.azurecr.io/public-involvement-planning
   COMPOSER_MEMORY_LIMIT: -1
-  SIMPLETEST_DB: sqlite://tmp/site.sqlite
-  SIMPLETEST_BASE_URL: "http://127.0.0.1:8080"
 
 jobs:
   composer-build:
@@ -169,6 +167,22 @@ jobs:
         run: |
           gzip -d ./.docker/images/nginx/base.tar.gz
           docker load --input ./.docker/images/nginx/base.tar
+
+      - name: Cache composer packages
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-composer-packages
+        with:
+          path: |
+            ./vendor
+            ./web/core
+            ./web/modules/contrib
+            ./web/themes/contrib
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('./composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
 
       - name: Build full image
         run: docker build -t $REPOSITORY/nginx -f ./.github/docker/Dockerfile .
