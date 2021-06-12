@@ -120,7 +120,7 @@ jobs:
             ${{ runner.os }}-
 
       - name: Build full image
-        run: docker build -t $REPOSITORY/fpm -f ./.github/docker/php/Dockerfile .
+        run: docker build -t $REPOSITORY/fpm -f ./.github/docker/Dockerfile .
 
       - name: Save full image
         run: docker save $REPOSITORY/fpm | gzip > ./.docker/images/fpm/full.tar.gz
@@ -171,7 +171,7 @@ jobs:
           docker load --input ./.docker/images/nginx/base.tar
 
       - name: Build full image
-        run: docker build -t $REPOSITORY/nginx -f ./.github/docker/php/Dockerfile .
+        run: docker build -t $REPOSITORY/nginx -f ./.github/docker/Dockerfile .
 
       - name: Save full image
         run: docker save $REPOSITORY/nginx | gzip > ./.docker/images/nginx/full.tar.gz
