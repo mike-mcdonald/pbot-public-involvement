@@ -220,7 +220,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: ${{ matrix.image }}-image
-          path: ./.docker/images/${{ matrix.image }}/full.tar.gz
+          path: ./.docker/images/${{ matrix.image }}
 
       - name: Load image
         run: |
