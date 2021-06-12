@@ -91,3 +91,5 @@ RUN apt-get update \
 
 # when you run bash, this is where you'll start, and where drush will be able to run from.
 WORKDIR /var/www/html
+
+USER www-data
