@@ -99,7 +99,7 @@ jobs:
         if: ${{ steps.docker-cache-hit.outputs.cache-hit }}
         run: |
           gzip -d ./.docker/images/fpm/base.tar.gz
-          docker load --input cat ./.docker/images/fpm/base.tar
+          docker load --input ./.docker/images/fpm/base.tar
 
       - name: Cache composer packages
         uses: actions/cache@v2
@@ -144,7 +144,7 @@ jobs:
         id: docker-cache-hit
         uses: actions/cache@v2
         with:
-          path: ./.docker/images/nginx/base
+          path: ./.docker/images/nginx/base.tar.gz
           key: ${{ runner.os }}-build-docker-${{ hashFiles('./.docker/nginx/**/*') }}
           restore-keys: |
             ${{ runner.os }}-build-docker-
