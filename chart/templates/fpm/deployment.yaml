@@ -11,6 +11,8 @@ spec:
   selector:
     matchLabels:
       {{- include "chart.selectorLabels" . | nindent 6 }}
+      app.kubernetes.io/part-of: {{ .Chart.Name }}
+      app.kubernetes.io/component: fpm
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -19,6 +21,8 @@ spec:
       {{- end }}
       labels:
         {{- include "chart.selectorLabels" . | nindent 8 }}
+        app.kubernetes.io/part-of: {{ .Chart.Name }}
+        app.kubernetes.io/component: fpm
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
