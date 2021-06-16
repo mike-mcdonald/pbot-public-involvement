@@ -34,7 +34,7 @@ fpm:
 nginx:
   replicas: 1
   image:
-    repository: pbotapps.azurecr.io/public-involvement-planning/fpm
+    repository: pbotapps.azurecr.io/public-involvement-planning/nginx
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
     tag: ""

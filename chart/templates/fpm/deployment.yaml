@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "chart.fullname" . }}
+  name: {{ include "chart.fullname" . }}-fpm
   labels:
     {{- include "chart.labels" . | nindent 4 }}
 spec:
-  {{- if not .Values.autoscaling.enabled }}
-  replicas: {{ .Values.replicaCount }}
+  {{- if not .Values.fpm.autoscaling.enabled }}
+  replicas: {{ .Values.fpm.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
@@ -15,7 +15,7 @@ spec:
       app.kubernetes.io/component: fpm
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
+      {{- with .Values.fpm.podAnnotations }}
       annotations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
@@ -24,19 +24,19 @@ spec:
         app.kubernetes.io/part-of: {{ .Chart.Name }}
         app.kubernetes.io/component: fpm
     spec:
-      {{- with .Values.imagePullSecrets }}
+      {{- with .Values.fpm.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       serviceAccountName: {{ include "chart.serviceAccountName" . }}
       securityContext:
-        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+        {{- toYaml .Values.fpm.podSecurityContext | nindent 8 }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
-            {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+            {{- toYaml .Values.fpm.securityContext | nindent 12 }}
+          image: "{{ .Values.fpm.image.repository }}:{{ .Values.fpm.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.fpm.image.pullPolicy }}
           ports:
             - name: http
               containerPort: 80
@@ -50,16 +50,16 @@ spec:
               path: /
               port: http
           resources:
-            {{- toYaml .Values.resources | nindent 12 }}
-      {{- with .Values.nodeSelector }}
+            {{- toYaml .Values.fpm.resources | nindent 12 }}
+      {{- with .Values.fpm.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- with .Values.affinity }}
+      {{- with .Values.fpm.affinity }}
       affinity:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- with .Values.tolerations }}
+      {{- with .Values.fpm.tolerations }}
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
