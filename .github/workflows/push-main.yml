@@ -77,7 +77,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ./.docker/images/fpm/base.tar.gz
-          key: ${{ runner.os }}-build-docker-${{ hashFiles('./.docker/php/**/*') }}
+          key: ${{ runner.os }}-build-docker-${{ hashFiles('.docker/php/**') }}
           restore-keys: |
             ${{ runner.os }}-build-docker-
 
@@ -145,7 +145,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ./.docker/images/nginx/base.tar.gz
-          key: ${{ runner.os }}-build-docker-${{ hashFiles('./.docker/nginx/**/*') }}
+          key: ${{ runner.os }}-build-docker-${{ hashFiles('.docker/nginx/**') }}
           restore-keys: |
             ${{ runner.os }}-build-docker-
 
