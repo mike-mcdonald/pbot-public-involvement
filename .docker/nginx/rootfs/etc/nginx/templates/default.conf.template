@@ -122,7 +122,7 @@ server {
     # These need to be listed from most specific to most general.
     location ~ ^/simplesaml/ {
         fastcgi_intercept_errors on;
-        fastcgi_pass php:9000;
+        fastcgi_pass ${FASTCGI_HOST}:${FASTCGI_PORT};
         fastcgi_index index.php;
         include fastcgi_params;
         # Allow SimpleSamlPHP to work by settig PATH_INFO, etc
@@ -140,7 +140,7 @@ server {
         fastcgi_param PHP_VALUE "default_mimetype=\"text/html\"
 default_charset=\"UTF-8\"";
         fastcgi_intercept_errors on;
-        fastcgi_pass php:9000;
+        fastcgi_pass ${FASTCGI_HOST}:${FASTCGI_PORT};
         fastcgi_index index.php;
         include fastcgi_params;
         # Allow SimpleSamlPHP to work by settig PATH_INFO, etc
@@ -159,7 +159,7 @@ default_charset=\"UTF-8\"";
         fastcgi_param PHP_VALUE "default_mimetype=\"text/html\"
 default_charset=\"UTF-8\"";
         fastcgi_intercept_errors on;
-        fastcgi_pass php:9000;
+        fastcgi_pass ${FASTCGI_HOST}:${FASTCGI_PORT};
         fastcgi_index index.php;
         include fastcgi_params;
         # Allow SimpleSamlPHP to work by settig PATH_INFO, etc
