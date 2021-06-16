@@ -34,13 +34,11 @@ jobs:
         with:
           path: |
             ./vendor
-            ./web/core
-            ./web/modules/contrib
-            ./web/themes/contrib
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('./composer.lock') }}
+            ./web
+          key: ${{ runner.os }}-build-v2-${{ env.cache-name }}-${{ hashFiles('./composer.lock') }}
           restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
+            ${{ runner.os }}-build-v2-${{ env.cache-name }}-
+            ${{ runner.os }}-build-v2-
             ${{ runner.os }}-
 
       - name: Setup PHP
@@ -110,13 +108,11 @@ jobs:
         with:
           path: |
             ./vendor
-            ./web/core
-            ./web/modules/contrib
-            ./web/themes/contrib
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('./composer.lock') }}
+            ./web
+          key: ${{ runner.os }}-build-v2-${{ env.cache-name }}-${{ hashFiles('./composer.lock') }}
           restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
+            ${{ runner.os }}-build-v2-${{ env.cache-name }}-
+            ${{ runner.os }}-build-v2-
             ${{ runner.os }}-
 
       - name: Build full image
@@ -179,13 +175,11 @@ jobs:
         with:
           path: |
             ./vendor
-            ./web/core
-            ./web/modules/contrib
-            ./web/themes/contrib
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('./composer.lock') }}
+            ./web
+          key: ${{ runner.os }}-build-v2-${{ env.cache-name }}-${{ hashFiles('./composer.lock') }}
           restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
+            ${{ runner.os }}-build-v2-${{ env.cache-name }}-
+            ${{ runner.os }}-build-v2-
             ${{ runner.os }}-
 
       - name: Build full image
