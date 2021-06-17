@@ -36,6 +36,8 @@ services:
       context: .docker/nginx
     environment:
       PANTHEON_ENVIRONMENT: dev
+      FASTCGI_HOST: php
+      FASTCGI_PORT: 9000
     ports:
       - "8080:80"
     volumes:
