@@ -32,31 +32,38 @@ spec:
       securityContext:
         {{- toYaml .Values.fpm.podSecurityContext | nindent 8 }}
       containers:
-        - name: {{ .Chart.Name }}
+        - name: {{ .Chart.Name }}-fpm
           securityContext:
             {{- toYaml .Values.fpm.securityContext | nindent 12 }}
-          image: "{{ .Values.fpm.image.repository }}:{{ .Values.fpm.image.tag | default .Chart.AppVersion }}"
+          image: "{{ .Values.fpm.image.repository }}:{{ .Values.fpm.image.tag | default .Chart.AppVersion | default .Values.version }}"
           imagePullPolicy: {{ .Values.fpm.image.pullPolicy }}
+          envFrom:
+            - configMapRef:
+                name: {{ include "chart.fullname" . }}-fpm
           env:
             - name: REDIS_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: {{ include "chart.fullname" . }}-redis
                   key: REDIS_PASSWORD
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "chart.fullname" . }}-fpm
+                  key: DATABASE_PASSWORD
+          volumeMounts:
+            - name: {{ include "chart.fullname" . }}-fpm
+              mountPath: /var/www/html/web/sites/default/files
           ports:
-            - name: http
-              containerPort: 80
+            - name: fpm
+              containerPort: 9000
               protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /
-              port: http
-          readinessProbe:
-            httpGet:
-              path: /
-              port: http
           resources:
             {{- toYaml .Values.fpm.resources | nindent 12 }}
+      volumes:
+        - name: {{ include "chart.fullname" . }}-fpm
+          persistentVolumeClaim:
+            claimName: {{ include "chart.fullname" . }}-fpm
       {{- with .Values.fpm.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

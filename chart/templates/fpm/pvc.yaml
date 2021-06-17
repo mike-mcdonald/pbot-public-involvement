@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "chart.fullname" . }}-fpm
+  labels:
+    {{- include "chart.labels" . | nindent 4 }}
+    app.kubernetes.io/name: "{{ include "chart.fullname" . }}-fpm"
+spec:
+  {{- if .Values.fpm.persistence.storageClass }}
+  storageClassName: {{ .Values.fpm.persistence.storageClass }}
+  {{- end }}
+  accessModes:
+  {{- range .Values.fpm.persistence.accessModes }}
+    - {{ . | quote }}
+  {{- end }}
+  resources:
+    requests:
+      storage: {{ .Values.fpm.persistence.size }}

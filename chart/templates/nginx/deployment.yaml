@@ -32,16 +32,16 @@ spec:
       securityContext:
         {{- toYaml .Values.nginx.podSecurityContext | nindent 8 }}
       containers:
-        - name: {{ .Chart.Name }}
+        - name: {{ .Chart.Name }}-nginx
           securityContext:
             {{- toYaml .Values.nginx.securityContext | nindent 12 }}
-          image: "{{ .Values.nginx.image.repository }}:{{ .Values.nginx.image.tag | default .Chart.AppVersion }}"
+          image: "{{ .Values.nginx.image.repository }}:{{ .Values.nginx.image.tag | default .Values.version | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.nginx.image.pullPolicy }}
           env:
             - name: FASTCGI_HOST
               value: {{ include "chart.fullname" . }}-fpm
             - name: FASTCGI_PORT
-              value: "9000"
+              value: "{{ .Values.fpm.service.port }}"
           ports:
             - name: http
               containerPort: 80

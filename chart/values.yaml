@@ -2,16 +2,23 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+version: main
+
 fpm:
   replicas: 1
   image:
     repository: pbotapps.azurecr.io/public-involvement-planning/fpm
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: ""
+    tag: main
   service:
     type: ClusterIP
     port: 9000
+  persistence:
+    storageClass: standard
+    size: 4Gi
+    accessModes:
+      - ReadWriteMany
   resources:
     {}
     # We usually recommend not to specify default resources and to leave this as a conscious
@@ -31,13 +38,14 @@ fpm:
     maxReplicas: 3
     targetCPUUtilizationPercentage: 80
     # targetMemoryUtilizationPercentage: 80
+
 nginx:
   replicas: 1
   image:
     repository: pbotapps.azurecr.io/public-involvement-planning/nginx
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: ""
+    tag: main
   service:
     type: ClusterIP
     port: 80
@@ -71,6 +79,11 @@ nginx:
     maxReplicas: 100
     targetCPUUtilizationPercentage: 80
     # targetMemoryUtilizationPercentage: 80
+
+postgres:
+  service:
+    name: postgresql-ha-pgpool
+    port: 5432
 
 redis:
   enabled: true

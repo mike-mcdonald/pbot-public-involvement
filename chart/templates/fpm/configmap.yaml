@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "chart.fullname" . }}-fpm
+  labels:
+    {{- include "chart.labels" . | nindent 4 }}
+    app.kubernetes.io/part-of: {{ .Chart.Name }}
+    app.kubernetes.io/component: fpm
+data:
+  ## Postgres DB configuration
+  DATABASE_HOST: {{ .Values.postgres.service.name }}
+  DATABASE_PORT: "{{ .Values.postgres.service.port }}"
+  DATABASE_NAME: public_involvement
+  DATABASE_USER: public_involvement
+  ## Redis DB configuration
+  REDIS_HOST: {{ include "chart.fullname" . }}-redis
+  REDIS_PORT: "{{ .Values.redis.service.port }}"

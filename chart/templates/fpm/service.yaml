@@ -8,9 +8,9 @@ spec:
   type: {{ .Values.fpm.service.type }}
   ports:
     - port: {{ .Values.fpm.service.port }}
-      targetPort: http
+      targetPort: fpm
       protocol: TCP
-      name: http
+      name: fpm
   selector:
     {{- include "chart.selectorLabels" . | nindent 4 }}
     app.kubernetes.io/part-of: {{ .Chart.Name }}
