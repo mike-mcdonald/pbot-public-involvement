@@ -1,5 +1,5 @@
 apiVersion: v2
-name: public-involvement-planning
+name: public-involvement
 description: A Helm chart PBOT Comms public involvement planning site
 
 # A chart can be either an 'application' or a 'library' chart.
