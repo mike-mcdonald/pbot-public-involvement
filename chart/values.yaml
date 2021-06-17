@@ -72,6 +72,21 @@ nginx:
     targetCPUUtilizationPercentage: 80
     # targetMemoryUtilizationPercentage: 80
 
+redis:
+  enabled: true
+  image:
+    repository: redis
+    tag: latest
+    pullPolicy: IfNotPresent
+  service:
+    port: 6379
+  persistence:
+    enabled: false
+    storageClass: standard
+    size: 4Gi
+    accessModes:
+      - ReadWriteOnce
+
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""

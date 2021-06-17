@@ -37,6 +37,12 @@ spec:
             {{- toYaml .Values.fpm.securityContext | nindent 12 }}
           image: "{{ .Values.fpm.image.repository }}:{{ .Values.fpm.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.fpm.image.pullPolicy }}
+          env:
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "chart.fullname" . }}-redis
+                  key: REDIS_PASSWORD
           ports:
             - name: http
               containerPort: 80

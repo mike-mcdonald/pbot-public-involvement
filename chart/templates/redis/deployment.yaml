@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "chart.fullname" . }}-redis
+  labels:
+    {{- include "chart.labels" . | nindent 4 }}
+    app.kubernetes.io/name: "{{ include "chart.fullname" . }}-redis"
+    app.kubernetes.io/component: redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "chart.selectorLabels" . | nindent 6 }}
+      app.kubernetes.io/name: "{{ include "chart.fullname" . }}-redis"
+      app.kubernetes.io/component: redis
+  template:
+    metadata:
+      labels:
+        {{- include "chart.selectorLabels" . | nindent 8 }}
+        app.kubernetes.io/name: "{{ include "chart.fullname" . }}-redis"
+        app.kubernetes.io/component: redis
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: "{{ include "chart.fullname" . }}-redis"
+          image: "{{ .Values.redis.image.repository }}:{{ .Values.redis.image.tag }}"
+          imagePullPolicy: {{ .Values.redis.image.pullPolicy }}
+          ports:
+            - name: redis
+              containerPort: 6379
+              protocol: TCP
+          env:
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: "{{ include "chart.fullname" . }}-redis"
+                  key: REDIS_PASSWORD
+          args: ["--requirepass", "$(REDIS_PASSWORD)"]
