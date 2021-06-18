@@ -42,6 +42,9 @@ spec:
               value: {{ include "chart.fullname" . }}-fpm
             - name: FASTCGI_PORT
               value: "{{ .Values.fpm.service.port }}"
+          volumeMounts:
+            - name: {{ include "chart.fullname" . }}-nginx
+              mountPath: /var/www/html/web/sites/default/files
           ports:
             - name: http
               containerPort: 80
@@ -56,6 +59,10 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.nginx.resources | nindent 12 }}
+      volumes:
+        - name: {{ include "chart.fullname" . }}-nginx
+          persistentVolumeClaim:
+            claimName: {{ include "chart.fullname" . }}-files
       {{- with .Values.nginx.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

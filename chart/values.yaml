@@ -14,11 +14,6 @@ fpm:
   service:
     type: ClusterIP
     port: 9000
-  persistence:
-    storageClass: standard
-    size: 4Gi
-    accessModes:
-      - ReadWriteMany
   resources:
     {}
     # We usually recommend not to specify default resources and to leave this as a conscious
@@ -79,6 +74,12 @@ nginx:
     maxReplicas: 100
     targetCPUUtilizationPercentage: 80
     # targetMemoryUtilizationPercentage: 80
+
+persistence:
+  storageClass: standard
+  size: 4Gi
+  accessModes:
+    - ReadWriteMany
 
 postgres:
   service:

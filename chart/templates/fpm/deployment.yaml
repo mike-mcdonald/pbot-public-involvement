@@ -63,7 +63,7 @@ spec:
       volumes:
         - name: {{ include "chart.fullname" . }}-fpm
           persistentVolumeClaim:
-            claimName: {{ include "chart.fullname" . }}-fpm
+            claimName: {{ include "chart.fullname" . }}-files
       {{- with .Values.fpm.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
