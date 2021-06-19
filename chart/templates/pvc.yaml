@@ -6,13 +6,13 @@ metadata:
     {{- include "chart.labels" . | nindent 4 }}
     app.kubernetes.io/name: "{{ include "chart.fullname" . }}-files"
 spec:
-  {{- if .Values.persistence.storageClass }}
-  storageClassName: {{ .Values.persistence.storageClass }}
+  {{- if .Values.files.storageClass }}
+  storageClassName: {{ .Values.files.storageClass }}
   {{- end }}
   accessModes:
-  {{- range .Values.persistence.accessModes }}
+  {{- range .Values.files.accessModes }}
     - {{ . | quote }}
   {{- end }}
   resources:
     requests:
-      storage: {{ .Values.persistence.size }}
+      storage: {{ .Values.files.size }}
