@@ -77,7 +77,6 @@ RUN apt-get update \
   fi \
   # Create drush and drupal console symlink so it can be accessed from anywhere in the container
   && ln -s /var/www/html/vendor/drush/drush/drush /usr/local/bin/drush \
-  && ln -s /var/www/html/vendor/drupal/console/bin/drupal /usr/local/bin/drupal \
   # Change the shell for login as www-data user
   && chsh -s /bin/bash www-data \
   # Clean up
