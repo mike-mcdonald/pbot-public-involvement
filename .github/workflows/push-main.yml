@@ -98,7 +98,7 @@ jobs:
       - name: Load base image
         if: ${{ steps.docker-cache-hit.outputs.cache-hit }}
         run: |
-          gzip -d ./.docker/images/fpm/base.tar.gz
+          gzip --keep -d ./.docker/images/fpm/base.tar.gz
           docker load --input ./.docker/images/fpm/base.tar
 
       - name: Cache composer packages
@@ -165,7 +165,7 @@ jobs:
       - name: Load base image
         if: ${{ steps.docker-cache-hit.outputs.cache-hit }}
         run: |
-          gzip -d ./.docker/images/nginx/base.tar.gz
+          gzip --keep -d ./.docker/images/nginx/base.tar.gz
           docker load --input ./.docker/images/nginx/base.tar
 
       - name: Cache composer packages
