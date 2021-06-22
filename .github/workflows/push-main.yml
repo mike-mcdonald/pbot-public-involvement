@@ -77,9 +77,9 @@ jobs:
           cache-name: cache-php-docker
         with:
           path: ./.docker/images/fpm/base.tar.gz
-          key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('.docker/php/**') }}
+          key: ${{ runner.os }}-${{ env.cache-name }}-v2-${{ hashFiles('.docker/php/**') }}
           restore-keys: |
-            ${{ runner.os }}-${{ env.cache-name }}-
+            ${{ runner.os }}-${{ env.cache-name }}-v2-
 
       - name: Build base image
         if: ${{ !steps.docker-cache-hit.outputs.cache-hit }}
@@ -145,9 +145,9 @@ jobs:
           cache-name: cache-nginx-docker
         with:
           path: ./.docker/images/nginx/base.tar.gz
-          key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('.docker/nginx/**') }}
+          key: ${{ runner.os }}-${{ env.cache-name }}-v2-${{ hashFiles('.docker/nginx/**') }}
           restore-keys: |
-            ${{ runner.os }}-${{ env.cache-name }}-
+            ${{ runner.os }}-${{ env.cache-name }}-v2-
 
       - name: Build base image
         if: ${{ !steps.docker-cache-hit.outputs.cache-hit }}
