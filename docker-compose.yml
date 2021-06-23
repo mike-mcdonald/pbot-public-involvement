@@ -36,7 +36,7 @@ services:
       context: .docker/nginx
     environment:
       PANTHEON_ENVIRONMENT: dev
-      FASTCGI_HOST: php
+      FASTCGI_HOST: cms
       FASTCGI_PORT: 9000
     ports:
       - "8080:80"
@@ -47,10 +47,9 @@ services:
       - cache-network
       - mail-network
 
-  php:
+  cms:
     build:
-      dockerfile: .docker/php/Dockerfile
-      context: .
+      context: .docker/php
       args:
         INSTALL_XDEBUG: "true"
         INSTALL_COMPOSER: "true"
@@ -65,7 +64,7 @@ services:
       DRUPAL_ENV: development
       XDEBUG_CONFIG: remote_host=host.docker.internal
     volumes:
-      - ".:/var/www/html:cached"
+      - "./cms:/var/www/html:cached"
     networks:
       - code-network
       - cache-network
