@@ -1,15 +1,3 @@
-# Drupal with PostgreSQL
-#
-# Access via "http://localhost:8080"
-#   (or "http://$(docker-machine ip):8080" if using docker-machine)
-#
-# During initial Drupal setup,
-# Database type: PostgreSQL
-# Database name: postgres
-# Database username: postgres
-# Database password: example
-# ADVANCED OPTIONS; Database host: postgres
-
 version: "3.3"
 
 services:
@@ -31,21 +19,35 @@ services:
     networks:
       - cache-network
 
-  web:
+  ui-web:
     build:
-      context: .docker/nginx
+      context: ./ui
     environment:
       PANTHEON_ENVIRONMENT: dev
       FASTCGI_HOST: cms
       FASTCGI_PORT: 9000
     ports:
-      - "8080:80"
+      - "8080:8080"
     volumes:
-      - ".:/var/www/html:cached"
+      - "./ui:/home/node:cached"
     networks:
       - code-network
       - cache-network
-      - mail-network
+
+  cms-web:
+    build:
+      context: .docker/cms
+    environment:
+      PANTHEON_ENVIRONMENT: dev
+      FASTCGI_HOST: cms
+      FASTCGI_PORT: 9000
+    ports:
+      - "8888:80"
+    volumes:
+      - "./cms:/var/www/html:cached"
+    networks:
+      - code-network
+      - cache-network
 
   cms:
     build:
@@ -68,7 +70,6 @@ services:
     networks:
       - code-network
       - cache-network
-      - mail-network
       - db-network
 
 networks:
@@ -77,8 +78,6 @@ networks:
   db-network:
     driver: bridge
   cache-network:
-    driver: bridge
-  mail-network:
     driver: bridge
 
 volumes:
