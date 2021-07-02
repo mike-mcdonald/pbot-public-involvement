@@ -22,6 +22,7 @@ module:
   dblog: 0
   dynamic_page_cache: 0
   editor: 0
+  entity: 0
   entity_reference_revisions: 0
   field: 0
   field_layout: 0
@@ -30,6 +31,7 @@ module:
   filter: 0
   graphql: 0
   graphql_example: 0
+  group: 0
   help: 0
   history: 0
   image: 0
@@ -60,6 +62,7 @@ module:
   typed_data: 0
   update: 0
   user: 0
+  variationcache: 0
   views_ui: 0
   workflows: 0
   ds: 1
