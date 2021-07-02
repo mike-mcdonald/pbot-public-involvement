@@ -11,7 +11,7 @@ dependencies:
     - field.field.node.public_involvement_plan_template.field_legal_requirements
     - field.field.node.public_involvement_plan_template.field_legal_requirements_y_n_
     - field.field.node.public_involvement_plan_template.field_partners_government_organi
-    - field.field.node.public_involvement_plan_template.field_please_describe_the_overal
+    - field.field.node.public_involvement_plan_template.field_description
     - field.field.node.public_involvement_plan_template.field_project_manger_key_staff
     - field.field.node.public_involvement_plan_template.field_project_website_link
     - field.field.node.public_involvement_plan_template.field_promise_to_the_public
@@ -127,7 +127,7 @@ content:
     third_party_settings: {  }
     type: basic_string
     region: content
-  field_please_describe_the_overal:
+  field_description:
     weight: 23
     label: above
     settings: {  }

@@ -3,10 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_please_describe_the_overal
+    - field.storage.node.field_description
     - node.type.public_involvement_plan_template
-id: node.public_involvement_plan_template.field_please_describe_the_overal
-field_name: field_please_describe_the_overal
+id: node.public_involvement_plan_template.field_description
+field_name: field_description
 entity_type: node
 bundle: public_involvement_plan_template
 label: 'Please describe the overall Project, Initiative, or Plan'

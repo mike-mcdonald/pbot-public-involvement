@@ -4,8 +4,8 @@ status: true
 dependencies:
   module:
     - node
-id: node.field_please_describe_the_overal
-field_name: field_please_describe_the_overal
+id: node.field_description
+field_name: field_description
 entity_type: node
 type: string_long
 settings:
