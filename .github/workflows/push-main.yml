@@ -141,7 +141,7 @@ jobs:
           cache-name: cache-nginx-docker
         with:
           path: ./.docker/images/nginx/base.tar.gz
-          key: ${{ runner.os }}-${{ env.cache-name }}-v2-${{ hashFiles('.docker/nginx/**') }}
+          key: ${{ runner.os }}-${{ env.cache-name }}-v2-${{ hashFiles('.docker/cms/**') }}
           restore-keys: |
             ${{ runner.os }}-${{ env.cache-name }}-v2-
 
@@ -151,8 +151,8 @@ jobs:
           docker \
           build \
           -t base \
-          -f ./.docker/nginx/Dockerfile \
-          ./.docker/nginx
+          -f ./.docker/cms/Dockerfile \
+          ./.docker/cms
 
       - name: Save base image
         if: ${{ !steps.docker-cache-hit.outputs.cache-hit }}
