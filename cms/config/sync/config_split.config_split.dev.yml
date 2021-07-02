@@ -9,6 +9,7 @@ folder: ../config/dev
 module:
   devel: 0
   devel_generate: 0
+  masquerade: 0
 theme: {  }
 blacklist: {  }
 graylist: {  }

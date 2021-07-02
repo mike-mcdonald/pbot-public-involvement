@@ -113,6 +113,7 @@
         }
     },
     "require-dev": {
-        "drupal/devel": "^4.1"
+        "drupal/devel": "^4.1",
+        "drupal/masquerade": "^2.0@beta"
     }
 }
