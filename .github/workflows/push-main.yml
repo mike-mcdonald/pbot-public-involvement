@@ -9,8 +9,8 @@ env:
   COMPOSER_MEMORY_LIMIT: -1
 
 jobs:
-  composer-build:
-    name: "Install Composer dependencies"
+  cms-build:
+    name: "Install CMS dependencies"
     runs-on: "ubuntu-20.04"
     strategy:
       fail-fast: false
@@ -18,12 +18,10 @@ jobs:
         php-version: ["7.4"]
         drupal-release: ["stable"]
         composer-channel: ["stable"]
+    defaults:
+      run:
+        working-directory: ./cms
     steps:
-      - name: Dump matrix context
-        env:
-          MATRIX_CONTEXT: ${{ toJSON(matrix) }}
-        run: echo "$MATRIX_CONTEXT"
-
       - name: Checkout
         uses: actions/checkout@v2
 
@@ -33,13 +31,12 @@ jobs:
           cache-name: cache-composer-packages
         with:
           path: |
-            ./vendor
-            ./web
-          key: ${{ runner.os }}-build-v2-${{ env.cache-name }}-${{ hashFiles('./composer.lock') }}
+            ./cms/vendor
+            ./cms/web
+          key: composer-build-v3-${{ env.cache-name }}-${{ hashFiles('./cms/composer.lock') }}
           restore-keys: |
-            ${{ runner.os }}-build-v2-${{ env.cache-name }}-
-            ${{ runner.os }}-build-v2-
-            ${{ runner.os }}-
+            composer-build-v3-${{ env.cache-name }}-
+            composer-build-v3-
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -59,9 +56,9 @@ jobs:
       - name: Install dependencies
         run: composer --verbose --no-dev install
 
-  php-docker-build:
+  cms-php-docker-build:
     name: "Build PHP Docker image"
-    needs: composer-build
+    needs: cms-build
     runs-on: "ubuntu-20.04"
     steps:
       - name: Checkout
@@ -107,16 +104,15 @@ jobs:
           cache-name: cache-composer-packages
         with:
           path: |
-            ./vendor
-            ./web
-          key: ${{ runner.os }}-build-v2-${{ env.cache-name }}-${{ hashFiles('./composer.lock') }}
+            ./cms/vendor
+            ./cms/web
+          key: composer-build-v3-${{ env.cache-name }}-${{ hashFiles('./cms/composer.lock') }}
           restore-keys: |
-            ${{ runner.os }}-build-v2-${{ env.cache-name }}-
-            ${{ runner.os }}-build-v2-
-            ${{ runner.os }}-
+            composer-build-v3-${{ env.cache-name }}-
+            composer-build-v3-
 
       - name: Build full image
-        run: docker build -t $REPOSITORY/fpm -f ./.github/docker/Dockerfile .
+        run: docker build -t $REPOSITORY/fpm -f ./.github/docker/Dockerfile ./cms
 
       - name: Save full image
         run: docker save $REPOSITORY/fpm | gzip > ./.docker/images/fpm/full.tar.gz
@@ -127,9 +123,9 @@ jobs:
           name: fpm-image
           path: ./.docker/images/fpm/full.tar.gz
 
-  nginx-docker-build:
-    name: "Build Nginx Docker image"
-    needs: composer-build
+  cms-nginx-docker-build:
+    name: "Build CMS Nginx Docker image"
+    needs: cms-build
     runs-on: "ubuntu-20.04"
     steps:
       - name: Checkout
@@ -174,16 +170,15 @@ jobs:
           cache-name: cache-composer-packages
         with:
           path: |
-            ./vendor
-            ./web
-          key: ${{ runner.os }}-build-v2-${{ env.cache-name }}-${{ hashFiles('./composer.lock') }}
+            ./cms/vendor
+            ./cms/web
+          key: composer-build-v3-${{ env.cache-name }}-${{ hashFiles('./cms/composer.lock') }}
           restore-keys: |
-            ${{ runner.os }}-build-v2-${{ env.cache-name }}-
-            ${{ runner.os }}-build-v2-
-            ${{ runner.os }}-
+            composer-build-v3-${{ env.cache-name }}-
+            composer-build-v3-
 
       - name: Build full image
-        run: docker build -t $REPOSITORY/nginx -f ./.github/docker/Dockerfile .
+        run: docker build -t $REPOSITORY/nginx -f ./.github/docker/Dockerfile ./cms
 
       - name: Save full image
         run: docker save $REPOSITORY/nginx | gzip > ./.docker/images/nginx/full.tar.gz
@@ -197,8 +192,8 @@ jobs:
   push-images:
     name: "Push Docker images"
     needs:
-      - php-docker-build
-      - nginx-docker-build
+      - cms-php-docker-build
+      - cms-nginx-docker-build
     runs-on: "ubuntu-20.04"
     strategy:
       matrix:
