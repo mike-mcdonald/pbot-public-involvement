@@ -1,2 +1,4 @@
 /artifacts/
 /vendor/
+/web/
+.env
