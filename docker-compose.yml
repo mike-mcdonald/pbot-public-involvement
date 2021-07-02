@@ -64,7 +64,9 @@ services:
       CACHE_HOST: redis
       CACHE_PORT: 6379
       DRUPAL_ENV: development
-      XDEBUG_CONFIG: remote_host=host.docker.internal
+      XDEBUG_CONFIG: mode=debug client_host=host.docker.internal start_with_request=yes
+      AZURE_CLIENT_ID: ${AZURE_CLIENT_ID}
+      AZURE_CLIENT_SECRET: ${AZURE_CLIENT_SECRET}
     volumes:
       - "./cms:/var/www/html:cached"
     networks:
