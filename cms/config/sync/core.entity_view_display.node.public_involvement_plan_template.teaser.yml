@@ -11,7 +11,7 @@ dependencies:
     - field.field.node.public_involvement_plan_template.field_interest_level
     - field.field.node.public_involvement_plan_template.field_legal_requirements
     - field.field.node.public_involvement_plan_template.field_legal_mandate
-    - field.field.node.public_involvement_plan_template.field_partners_government_organi
+    - field.field.node.public_involvement_plan_template.field_partners
     - field.field.node.public_involvement_plan_template.field_description
     - field.field.node.public_involvement_plan_template.field_project_manger_key_staff
     - field.field.node.public_involvement_plan_template.field_project_website_link
@@ -136,7 +136,7 @@ hidden:
   field_consultant: true
   field_legal_requirements: true
   field_legal_mandate: true
-  field_partners_government_organi: true
+  field_partners: true
   field_project_website_link: true
   field_promise_to_the_public: true
   field_public_input_is_needed_for: true

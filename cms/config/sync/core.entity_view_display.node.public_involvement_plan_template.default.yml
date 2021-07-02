@@ -10,7 +10,7 @@ dependencies:
     - field.field.node.public_involvement_plan_template.field_interest_level
     - field.field.node.public_involvement_plan_template.field_legal_requirements
     - field.field.node.public_involvement_plan_template.field_legal_mandate
-    - field.field.node.public_involvement_plan_template.field_partners_government_organi
+    - field.field.node.public_involvement_plan_template.field_partners
     - field.field.node.public_involvement_plan_template.field_description
     - field.field.node.public_involvement_plan_template.field_project_manger_key_staff
     - field.field.node.public_involvement_plan_template.field_project_website_link
@@ -120,7 +120,7 @@ content:
     third_party_settings: {  }
     type: list_default
     region: content
-  field_partners_government_organi:
+  field_partners:
     weight: 21
     label: above
     settings: {  }

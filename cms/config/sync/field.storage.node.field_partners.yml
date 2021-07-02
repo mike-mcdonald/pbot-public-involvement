@@ -4,8 +4,8 @@ status: true
 dependencies:
   module:
     - node
-id: node.field_partners_government_organi
-field_name: field_partners_government_organi
+id: node.field_partners
+field_name: field_partners
 entity_type: node
 type: string_long
 settings:
