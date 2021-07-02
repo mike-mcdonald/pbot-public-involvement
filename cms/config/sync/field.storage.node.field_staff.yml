@@ -1,16 +1,14 @@
-uuid: 4eef22a1-ca8e-4b51-ba0d-5a159fa91fc7
+uuid: 11b8023e-1e46-4a9e-b33b-d98ac1fecd46
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.field_project_website_link
-field_name: field_project_website_link
+id: node.field_staff
+field_name: field_staff
 entity_type: node
-type: string
+type: string_long
 settings:
-  max_length: 255
-  is_ascii: false
   case_sensitive: false
 module: core
 locked: false

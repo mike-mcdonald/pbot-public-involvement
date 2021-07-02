@@ -3,12 +3,12 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_promise_to_the_public
+    - field.storage.node.field_public_promise
     - node.type.public_involvement_plan_template
   module:
     - options
-id: node.public_involvement_plan_template.field_promise_to_the_public
-field_name: field_promise_to_the_public
+id: node.public_involvement_plan_template.field_public_promise
+field_name: field_public_promise
 entity_type: node
 bundle: public_involvement_plan_template
 label: 'Promise to the Public'

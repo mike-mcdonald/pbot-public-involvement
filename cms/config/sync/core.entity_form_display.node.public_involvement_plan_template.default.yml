@@ -12,13 +12,13 @@ dependencies:
     - field.field.node.public_involvement_plan_template.field_legal_mandate
     - field.field.node.public_involvement_plan_template.field_partners
     - field.field.node.public_involvement_plan_template.field_description
-    - field.field.node.public_involvement_plan_template.field_project_manger_key_staff
-    - field.field.node.public_involvement_plan_template.field_project_website_link
-    - field.field.node.public_involvement_plan_template.field_promise_to_the_public
-    - field.field.node.public_involvement_plan_template.field_public_input_is_needed_for
-    - field.field.node.public_involvement_plan_template.field_public_involvement_timefra
-    - field.field.node.public_involvement_plan_template.field_public_involvement_will_ad
-    - field.field.node.public_involvement_plan_template.field_qual_promise_to_public
+    - field.field.node.public_involvement_plan_template.field_staff
+    - field.field.node.public_involvement_plan_template.field_website
+    - field.field.node.public_involvement_plan_template.field_public_promise
+    - field.field.node.public_involvement_plan_template.field_questions
+    - field.field.node.public_involvement_plan_template.field_timeframe
+    - field.field.node.public_involvement_plan_template.field_benefit
+    - field.field.node.public_involvement_plan_template.field_promise_description
     - field.field.node.public_involvement_plan_template.field_related_documents
     - field.field.node.public_involvement_plan_template.field_stakeholder_involvement_st
     - field.field.node.public_involvement_plan_template.field_tags
@@ -128,7 +128,7 @@ content:
     third_party_settings: {  }
     type: string_textarea
     region: content
-  field_project_manger_key_staff:
+  field_staff:
     weight: 1
     settings:
       rows: 2
@@ -136,7 +136,7 @@ content:
     third_party_settings: {  }
     type: string_textarea
     region: content
-  field_project_website_link:
+  field_website:
     weight: 25
     settings:
       size: 60
@@ -144,13 +144,13 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_promise_to_the_public:
+  field_public_promise:
     weight: 15
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
-  field_public_input_is_needed_for:
+  field_questions:
     weight: 18
     settings:
       rows: 5
@@ -158,7 +158,7 @@ content:
     third_party_settings: {  }
     type: string_textarea
     region: content
-  field_public_involvement_timefra:
+  field_timeframe:
     type: entity_reference_paragraphs
     weight: 28
     settings:
@@ -170,7 +170,7 @@ content:
       default_paragraph_type: ''
     third_party_settings: {  }
     region: content
-  field_public_involvement_will_ad:
+  field_benefit:
     weight: 23
     settings:
       rows: 5
@@ -178,7 +178,7 @@ content:
     third_party_settings: {  }
     type: string_textarea
     region: content
-  field_qual_promise_to_public:
+  field_promise_description:
     weight: 16
     settings:
       rows: 5

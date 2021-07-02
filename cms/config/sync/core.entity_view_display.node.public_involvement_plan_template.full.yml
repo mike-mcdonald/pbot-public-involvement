@@ -13,13 +13,13 @@ dependencies:
     - field.field.node.public_involvement_plan_template.field_legal_mandate
     - field.field.node.public_involvement_plan_template.field_partners
     - field.field.node.public_involvement_plan_template.field_description
-    - field.field.node.public_involvement_plan_template.field_project_manger_key_staff
-    - field.field.node.public_involvement_plan_template.field_project_website_link
-    - field.field.node.public_involvement_plan_template.field_promise_to_the_public
-    - field.field.node.public_involvement_plan_template.field_public_input_is_needed_for
-    - field.field.node.public_involvement_plan_template.field_public_involvement_timefra
-    - field.field.node.public_involvement_plan_template.field_public_involvement_will_ad
-    - field.field.node.public_involvement_plan_template.field_qual_promise_to_public
+    - field.field.node.public_involvement_plan_template.field_staff
+    - field.field.node.public_involvement_plan_template.field_website
+    - field.field.node.public_involvement_plan_template.field_public_promise
+    - field.field.node.public_involvement_plan_template.field_questions
+    - field.field.node.public_involvement_plan_template.field_timeframe
+    - field.field.node.public_involvement_plan_template.field_benefit
+    - field.field.node.public_involvement_plan_template.field_promise_description
     - field.field.node.public_involvement_plan_template.field_stakeholder_involvement_st
     - field.field.node.public_involvement_plan_template.field_tags
     - field.field.node.public_involvement_plan_template.field_what_are_the_intended_outc
@@ -42,7 +42,7 @@ third_party_settings:
       settings: {  }
     regions:
       content:
-        - field_project_manger_key_staff
+        - field_staff
         - field_partners
         - field_consultant
         - field_div_sect
@@ -55,13 +55,13 @@ third_party_settings:
         - field_interest_level
         - field_what_is_the_interest_in_th
         - field_what_are_the_intended_outc
-        - field_promise_to_the_public
-        - field_qual_promise_to_public
-        - field_public_involvement_will_ad
-        - field_public_input_is_needed_for
-        - field_project_website_link
+        - field_public_promise
+        - field_promise_description
+        - field_benefit
+        - field_questions
+        - field_website
         - field_tags
-        - field_public_involvement_timefra
+        - field_timeframe
         - field_stakeholder_involvement_st
         - field_budget
 id: node.public_involvement_plan_template.full
@@ -133,14 +133,14 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-  field_project_manger_key_staff:
+  field_staff:
     type: basic_string
     weight: 0
     region: content
     label: above
     settings: {  }
     third_party_settings: {  }
-  field_project_website_link:
+  field_website:
     type: string
     weight: 17
     region: content
@@ -148,35 +148,35 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-  field_promise_to_the_public:
+  field_public_promise:
     type: list_default
     weight: 13
     region: content
     label: inline
     settings: {  }
     third_party_settings: {  }
-  field_public_input_is_needed_for:
+  field_questions:
     type: basic_string
     weight: 16
     region: content
     label: above
     settings: {  }
     third_party_settings: {  }
-  field_public_involvement_timefra:
+  field_timeframe:
     type: paragraph_summary
     weight: 19
     region: content
     label: above
     settings: {  }
     third_party_settings: {  }
-  field_public_involvement_will_ad:
+  field_benefit:
     type: basic_string
     weight: 15
     region: content
     label: above
     settings: {  }
     third_party_settings: {  }
-  field_qual_promise_to_public:
+  field_promise_description:
     type: basic_string
     weight: 14
     region: content

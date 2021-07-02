@@ -3,10 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_qual_promise_to_public
+    - field.storage.node.field_promise_description
     - node.type.public_involvement_plan_template
-id: node.public_involvement_plan_template.field_qual_promise_to_public
-field_name: field_qual_promise_to_public
+id: node.public_involvement_plan_template.field_promise_description
+field_name: field_promise_description
 entity_type: node
 bundle: public_involvement_plan_template
 label: 'What is the promise to the public? If there are multiple, for different stakeholders, why?'

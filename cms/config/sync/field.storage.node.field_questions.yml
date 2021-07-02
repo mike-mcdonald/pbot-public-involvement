@@ -4,8 +4,8 @@ status: true
 dependencies:
   module:
     - node
-id: node.field_public_input_is_needed_for
-field_name: field_public_input_is_needed_for
+id: node.field_questions
+field_name: field_questions
 entity_type: node
 type: string_long
 settings:

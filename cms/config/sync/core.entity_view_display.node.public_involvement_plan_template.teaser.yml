@@ -13,13 +13,13 @@ dependencies:
     - field.field.node.public_involvement_plan_template.field_legal_mandate
     - field.field.node.public_involvement_plan_template.field_partners
     - field.field.node.public_involvement_plan_template.field_description
-    - field.field.node.public_involvement_plan_template.field_project_manger_key_staff
-    - field.field.node.public_involvement_plan_template.field_project_website_link
-    - field.field.node.public_involvement_plan_template.field_promise_to_the_public
-    - field.field.node.public_involvement_plan_template.field_public_input_is_needed_for
-    - field.field.node.public_involvement_plan_template.field_public_involvement_timefra
-    - field.field.node.public_involvement_plan_template.field_public_involvement_will_ad
-    - field.field.node.public_involvement_plan_template.field_qual_promise_to_public
+    - field.field.node.public_involvement_plan_template.field_staff
+    - field.field.node.public_involvement_plan_template.field_website
+    - field.field.node.public_involvement_plan_template.field_public_promise
+    - field.field.node.public_involvement_plan_template.field_questions
+    - field.field.node.public_involvement_plan_template.field_timeframe
+    - field.field.node.public_involvement_plan_template.field_benefit
+    - field.field.node.public_involvement_plan_template.field_promise_description
     - field.field.node.public_involvement_plan_template.field_related_documents
     - field.field.node.public_involvement_plan_template.field_stakeholder_involvement_st
     - field.field.node.public_involvement_plan_template.field_tags
@@ -50,7 +50,7 @@ third_party_settings:
         - field_tags
         - field_div_sect
         - field_description
-        - field_project_manger_key_staff
+        - field_staff
         - links
     fields:
       'bundle_field:node':
@@ -109,7 +109,7 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-  field_project_manger_key_staff:
+  field_staff:
     type: basic_string
     weight: 8
     region: content
@@ -137,12 +137,12 @@ hidden:
   field_legal_requirements: true
   field_legal_mandate: true
   field_partners: true
-  field_project_website_link: true
-  field_promise_to_the_public: true
-  field_public_input_is_needed_for: true
-  field_public_involvement_timefra: true
-  field_public_involvement_will_ad: true
-  field_qual_promise_to_public: true
+  field_website: true
+  field_public_promise: true
+  field_questions: true
+  field_timeframe: true
+  field_benefit: true
+  field_promise_description: true
   field_related_documents: true
   field_stakeholder_involvement_st: true
   field_what_are_the_intended_outc: true

@@ -3,10 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_public_input_is_needed_for
+    - field.storage.node.field_questions
     - node.type.public_involvement_plan_template
-id: node.public_involvement_plan_template.field_public_input_is_needed_for
-field_name: field_public_input_is_needed_for
+id: node.public_involvement_plan_template.field_questions
+field_name: field_questions
 entity_type: node
 bundle: public_involvement_plan_template
 label: 'Please list some key questions that public input could be used to answer:'
