@@ -228,4 +228,5 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_related_documents: true
   links: true
