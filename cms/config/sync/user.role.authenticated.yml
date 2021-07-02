@@ -15,6 +15,7 @@ permissions:
   - 'access site-wide contact form'
   - 'create public_involvement_plan_template content'
   - 'edit own public_involvement_plan_template content'
+  - 'grant simple_oauth codes'
   - 'post comments'
   - 'search content'
   - 'skip comment approval'
