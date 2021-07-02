@@ -1,5 +1,9 @@
 server {
-    root /var/www/html/web; ## <-- Your only path reference.
+    root /var/www/html/web;
+
+    proxy_busy_buffers_size   512k;
+    proxy_buffers   4 512k;
+    proxy_buffer_size   256k;
 
     location = /favicon.ico {
         log_not_found off;
@@ -92,6 +96,11 @@ server {
         fastcgi_intercept_errors on;
 
         fastcgi_pass ${FASTCGI_HOST}:${FASTCGI_PORT};
+
+        ## tune buffers to avoid error ##
+        fastcgi_buffers 32 256k;
+        fastcgi_buffer_size 512k;
+        fastcgi_busy_buffers_size 512k;
     }
 
     location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg)$ {
