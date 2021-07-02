@@ -5,8 +5,8 @@ dependencies:
   module:
     - node
     - options
-id: node.field_legal_requirements_y_n_
-field_name: field_legal_requirements_y_n_
+id: node.field_legal_mandate
+field_name: field_legal_mandate
 entity_type: node
 type: list_float
 settings:

@@ -9,7 +9,7 @@ dependencies:
     - field.field.node.public_involvement_plan_template.field_impact_level
     - field.field.node.public_involvement_plan_template.field_interest_level
     - field.field.node.public_involvement_plan_template.field_legal_requirements
-    - field.field.node.public_involvement_plan_template.field_legal_requirements_y_n_
+    - field.field.node.public_involvement_plan_template.field_legal_mandate
     - field.field.node.public_involvement_plan_template.field_partners_government_organi
     - field.field.node.public_involvement_plan_template.field_description
     - field.field.node.public_involvement_plan_template.field_project_manger_key_staff
@@ -113,7 +113,7 @@ content:
     third_party_settings: {  }
     type: basic_string
     region: content
-  field_legal_requirements_y_n_:
+  field_legal_mandate:
     weight: 16
     label: above
     settings: {  }

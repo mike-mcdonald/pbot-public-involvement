@@ -10,7 +10,7 @@ dependencies:
     - field.field.node.public_involvement_plan_template.field_impact_level
     - field.field.node.public_involvement_plan_template.field_interest_level
     - field.field.node.public_involvement_plan_template.field_legal_requirements
-    - field.field.node.public_involvement_plan_template.field_legal_requirements_y_n_
+    - field.field.node.public_involvement_plan_template.field_legal_mandate
     - field.field.node.public_involvement_plan_template.field_partners_government_organi
     - field.field.node.public_involvement_plan_template.field_description
     - field.field.node.public_involvement_plan_template.field_project_manger_key_staff
@@ -48,7 +48,7 @@ third_party_settings:
         - field_div_sect
         - field_description
         - field_what_key_decisions_are_bei
-        - field_legal_requirements_y_n_
+        - field_legal_mandate
         - field_legal_requirements
         - field_impact_level
         - field_what_is_the_impact_of_this
@@ -112,7 +112,7 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-  field_legal_requirements_y_n_:
+  field_legal_mandate:
     type: list_key
     weight: 6
     region: content
