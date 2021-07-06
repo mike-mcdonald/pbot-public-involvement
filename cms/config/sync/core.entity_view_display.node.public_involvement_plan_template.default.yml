@@ -22,10 +22,10 @@ dependencies:
     - field.field.node.public_involvement_plan_template.field_related_documents
     - field.field.node.public_involvement_plan_template.field_stakeholder_involvement_st
     - field.field.node.public_involvement_plan_template.field_tags
-    - field.field.node.public_involvement_plan_template.field_what_are_the_intended_outc
-    - field.field.node.public_involvement_plan_template.field_what_is_the_impact_of_this
-    - field.field.node.public_involvement_plan_template.field_what_is_the_interest_in_th
-    - field.field.node.public_involvement_plan_template.field_what_key_decisions_are_bei
+    - field.field.node.public_involvement_plan_template.field_intended_outcomes
+    - field.field.node.public_involvement_plan_template.field_impact_description
+    - field.field.node.public_involvement_plan_template.field_interest_description
+    - field.field.node.public_involvement_plan_template.field_key decision
     - node.type.public_involvement_plan_template
   module:
     - ds
@@ -48,7 +48,7 @@ third_party_settings:
         - field_division_section_res
         - field_consultant_if_applicable_
         - field_questions
-        - field_what_key_decisions_are_bei
+        - field_key decision
         - field_intended_outcomes_or_objec
         - field_interest_level
         - field_impact_level
@@ -208,28 +208,28 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-  field_what_are_the_intended_outc:
+  field_intended_outcomes:
     weight: 14
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
-  field_what_is_the_impact_of_this:
+  field_impact_description:
     weight: 17
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
-  field_what_is_the_interest_in_th:
+  field_interest_description:
     weight: 18
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
-  field_what_key_decisions_are_bei:
+  field_key decision:
     type: basic_string
     weight: 4
     region: content

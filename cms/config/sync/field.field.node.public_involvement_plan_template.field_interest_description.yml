@@ -3,10 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_what_is_the_interest_in_th
+    - field.storage.node.field_interest_description
     - node.type.public_involvement_plan_template
-id: node.public_involvement_plan_template.field_what_is_the_interest_in_th
-field_name: field_what_is_the_interest_in_th
+id: node.public_involvement_plan_template.field_interest_description
+field_name: field_interest_description
 entity_type: node
 bundle: public_involvement_plan_template
 label: 'What is the interest in this project?'

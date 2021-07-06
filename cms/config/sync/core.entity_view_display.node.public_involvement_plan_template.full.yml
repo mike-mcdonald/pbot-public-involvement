@@ -22,10 +22,10 @@ dependencies:
     - field.field.node.public_involvement_plan_template.field_promise_description
     - field.field.node.public_involvement_plan_template.field_stakeholder_involvement_st
     - field.field.node.public_involvement_plan_template.field_tags
-    - field.field.node.public_involvement_plan_template.field_what_are_the_intended_outc
-    - field.field.node.public_involvement_plan_template.field_what_is_the_impact_of_this
-    - field.field.node.public_involvement_plan_template.field_what_is_the_interest_in_th
-    - field.field.node.public_involvement_plan_template.field_what_key_decisions_are_bei
+    - field.field.node.public_involvement_plan_template.field_intended_outcomes
+    - field.field.node.public_involvement_plan_template.field_impact_description
+    - field.field.node.public_involvement_plan_template.field_interest_description
+    - field.field.node.public_involvement_plan_template.field_key decision
     - node.type.public_involvement_plan_template
   module:
     - ds
@@ -47,14 +47,14 @@ third_party_settings:
         - field_consultant
         - field_div_sect
         - field_description
-        - field_what_key_decisions_are_bei
+        - field_key decision
         - field_legal_mandate
         - field_legal_requirements
         - field_impact_level
-        - field_what_is_the_impact_of_this
+        - field_impact_description
         - field_interest_level
-        - field_what_is_the_interest_in_th
-        - field_what_are_the_intended_outc
+        - field_interest_description
+        - field_intended_outcomes
         - field_public_promise
         - field_promise_description
         - field_benefit
@@ -199,28 +199,28 @@ content:
       view_mode: default
       link: false
     third_party_settings: {  }
-  field_what_are_the_intended_outc:
+  field_intended_outcomes:
     type: basic_string
     weight: 12
     region: content
     label: above
     settings: {  }
     third_party_settings: {  }
-  field_what_is_the_impact_of_this:
+  field_impact_description:
     type: basic_string
     weight: 9
     region: content
     label: above
     settings: {  }
     third_party_settings: {  }
-  field_what_is_the_interest_in_th:
+  field_interest_description:
     type: basic_string
     weight: 11
     region: content
     label: above
     settings: {  }
     third_party_settings: {  }
-  field_what_key_decisions_are_bei:
+  field_key decision:
     type: basic_string
     weight: 5
     region: content
