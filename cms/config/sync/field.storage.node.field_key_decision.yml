@@ -4,8 +4,8 @@ status: true
 dependencies:
   module:
     - node
-id: node.field_key decision
-field_name: field_key decision
+id: node.field_key_decision
+field_name: field_key_decision
 entity_type: node
 type: string_long
 settings:

@@ -3,13 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_stakeholder_involvement_st
+    - field.storage.node.field_strategy
     - node.type.public_involvement_plan_template
     - paragraphs.paragraphs_type.stakeholder_involvement_strategy
   module:
     - entity_reference_revisions
-id: node.public_involvement_plan_template.field_stakeholder_involvement_st
-field_name: field_stakeholder_involvement_st
+id: node.public_involvement_plan_template.field_strategy
+field_name: field_strategy
 entity_type: node
 bundle: public_involvement_plan_template
 label: 'Stakeholder Involvement Strategy'

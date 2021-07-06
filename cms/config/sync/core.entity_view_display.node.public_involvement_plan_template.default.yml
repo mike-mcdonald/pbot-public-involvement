@@ -20,12 +20,12 @@ dependencies:
     - field.field.node.public_involvement_plan_template.field_benefit
     - field.field.node.public_involvement_plan_template.field_promise_description
     - field.field.node.public_involvement_plan_template.field_related_documents
-    - field.field.node.public_involvement_plan_template.field_stakeholder_involvement_st
+    - field.field.node.public_involvement_plan_template.field_strategy
     - field.field.node.public_involvement_plan_template.field_tags
     - field.field.node.public_involvement_plan_template.field_intended_outcomes
     - field.field.node.public_involvement_plan_template.field_impact_description
     - field.field.node.public_involvement_plan_template.field_interest_description
-    - field.field.node.public_involvement_plan_template.field_key decision
+    - field.field.node.public_involvement_plan_template.field_key_decision
     - node.type.public_involvement_plan_template
   module:
     - ds
@@ -48,12 +48,12 @@ third_party_settings:
         - field_division_section_res
         - field_consultant_if_applicable_
         - field_questions
-        - field_key decision
+        - field_key_decision
         - field_intended_outcomes_or_objec
         - field_interest_level
         - field_impact_level
         - field_benefit
-        - field_stakeholder_involvement_st
+        - field_strategy
         - field_public_promise
     fields:
       node_title:
@@ -193,7 +193,7 @@ content:
     third_party_settings: {  }
     type: file_default
     region: content
-  field_stakeholder_involvement_st:
+  field_strategy:
     type: paragraph_summary
     weight: 9
     region: content
@@ -229,7 +229,7 @@ content:
     third_party_settings: {  }
     type: basic_string
     region: content
-  field_key decision:
+  field_key_decision:
     type: basic_string
     weight: 4
     region: content

@@ -20,12 +20,12 @@ dependencies:
     - field.field.node.public_involvement_plan_template.field_timeframe
     - field.field.node.public_involvement_plan_template.field_benefit
     - field.field.node.public_involvement_plan_template.field_promise_description
-    - field.field.node.public_involvement_plan_template.field_stakeholder_involvement_st
+    - field.field.node.public_involvement_plan_template.field_strategy
     - field.field.node.public_involvement_plan_template.field_tags
     - field.field.node.public_involvement_plan_template.field_intended_outcomes
     - field.field.node.public_involvement_plan_template.field_impact_description
     - field.field.node.public_involvement_plan_template.field_interest_description
-    - field.field.node.public_involvement_plan_template.field_key decision
+    - field.field.node.public_involvement_plan_template.field_key_decision
     - node.type.public_involvement_plan_template
   module:
     - ds
@@ -47,7 +47,7 @@ third_party_settings:
         - field_consultant
         - field_div_sect
         - field_description
-        - field_key decision
+        - field_key_decision
         - field_legal_mandate
         - field_legal_requirements
         - field_impact_level
@@ -62,7 +62,7 @@ third_party_settings:
         - field_website
         - field_tags
         - field_timeframe
-        - field_stakeholder_involvement_st
+        - field_strategy
         - field_budget
 id: node.public_involvement_plan_template.full
 targetEntityType: node
@@ -183,7 +183,7 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-  field_stakeholder_involvement_st:
+  field_strategy:
     type: paragraph_summary
     weight: 20
     region: content
@@ -220,7 +220,7 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-  field_key decision:
+  field_key_decision:
     type: basic_string
     weight: 5
     region: content

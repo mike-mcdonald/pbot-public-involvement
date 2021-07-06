@@ -21,12 +21,12 @@ dependencies:
     - field.field.node.public_involvement_plan_template.field_benefit
     - field.field.node.public_involvement_plan_template.field_promise_description
     - field.field.node.public_involvement_plan_template.field_related_documents
-    - field.field.node.public_involvement_plan_template.field_stakeholder_involvement_st
+    - field.field.node.public_involvement_plan_template.field_strategy
     - field.field.node.public_involvement_plan_template.field_tags
     - field.field.node.public_involvement_plan_template.field_intended_outcomes
     - field.field.node.public_involvement_plan_template.field_impact_description
     - field.field.node.public_involvement_plan_template.field_interest_description
-    - field.field.node.public_involvement_plan_template.field_key decision
+    - field.field.node.public_involvement_plan_template.field_key_decision
     - node.type.public_involvement_plan_template
   module:
     - ds
@@ -144,8 +144,8 @@ hidden:
   field_benefit: true
   field_promise_description: true
   field_related_documents: true
-  field_stakeholder_involvement_st: true
+  field_strategy: true
   field_intended_outcomes: true
   field_impact_description: true
   field_interest_description: true
-  field_key decision: true
+  field_key_decision: true
