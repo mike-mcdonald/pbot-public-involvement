@@ -1,19 +1,19 @@
-uuid: 75a0be0b-f7e9-41fc-aad9-d362889411bc
+uuid: 09b8522f-cb2a-4eb5-a074-686b283438a6
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_public_involvement_timefra
+    - field.storage.node.field_strategy
     - node.type.public_involvement_plan_template
-    - paragraphs.paragraphs_type.public_engagement_timeframe
+    - paragraphs.paragraphs_type.stakeholder_involvement_strategy
   module:
     - entity_reference_revisions
-id: node.public_involvement_plan_template.field_public_involvement_timefra
-field_name: field_public_involvement_timefra
+id: node.public_involvement_plan_template.field_strategy
+field_name: field_strategy
 entity_type: node
 bundle: public_involvement_plan_template
-label: 'Public Involvement Timeframe'
-description: '<a href="timeframe-public-engagement-activities" target="_blank">Timeframe Considerations</a> '
+label: 'Stakeholder Involvement Strategy'
+description: '<a href="equitable-outreach-strategy-what-tools-correspond-stakeholders-and-respective-public-involvement" target="_blank">Equitable Public Involvement Strategies</a> '
 required: false
 translatable: false
 default_value: {  }
@@ -23,11 +23,11 @@ settings:
   handler_settings:
     negate: 0
     target_bundles:
-      public_engagement_timeframe: public_engagement_timeframe
+      stakeholder_involvement_strategy: stakeholder_involvement_strategy
     target_bundles_drag_drop:
       public_engagement_timeframe:
-        enabled: true
         weight: 3
+        enabled: false
       public_involvement_budget:
         weight: 5
         enabled: false
@@ -35,6 +35,6 @@ settings:
         weight: 7
         enabled: false
       stakeholder_involvement_strategy:
-        weight: 4
-        enabled: false
+        enabled: true
+        weight: 2
 field_type: entity_reference_revisions

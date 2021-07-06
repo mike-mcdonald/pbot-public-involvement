@@ -3,10 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_public_involvement_will_ad
+    - field.storage.node.field_benefit
     - node.type.public_involvement_plan_template
-id: node.public_involvement_plan_template.field_public_involvement_will_ad
-field_name: field_public_involvement_will_ad
+id: node.public_involvement_plan_template.field_benefit
+field_name: field_benefit
 entity_type: node
 bundle: public_involvement_plan_template
 label: 'Public involvement will address these anticipated benefits and possible intended and unintended consequences: '

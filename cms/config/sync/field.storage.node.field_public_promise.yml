@@ -5,8 +5,8 @@ dependencies:
   module:
     - node
     - options
-id: node.field_promise_to_the_public
-field_name: field_promise_to_the_public
+id: node.field_public_promise
+field_name: field_public_promise
 entity_type: node
 type: list_float
 settings:

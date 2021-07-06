@@ -3,10 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_partners_government_organi
+    - field.storage.node.field_partners
     - node.type.public_involvement_plan_template
-id: node.public_involvement_plan_template.field_partners_government_organi
-field_name: field_partners_government_organi
+id: node.public_involvement_plan_template.field_partners
+field_name: field_partners
 entity_type: node
 bundle: public_involvement_plan_template
 label: 'Partners (Government & Organizations)'

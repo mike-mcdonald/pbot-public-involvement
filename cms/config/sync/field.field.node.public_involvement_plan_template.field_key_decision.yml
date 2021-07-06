@@ -3,10 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_what_key_decisions_are_bei
+    - field.storage.node.field_key_decision
     - node.type.public_involvement_plan_template
-id: node.public_involvement_plan_template.field_what_key_decisions_are_bei
-field_name: field_what_key_decisions_are_bei
+id: node.public_involvement_plan_template.field_key_decision
+field_name: field_key_decision
 entity_type: node
 bundle: public_involvement_plan_template
 label: 'What key decisions are being made by PBOT, Partner Agencies, Contractors, City Council?:'

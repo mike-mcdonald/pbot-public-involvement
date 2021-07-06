@@ -1,11 +1,11 @@
-uuid: 977e1fe1-6231-437c-bf1d-f0cc19cbb626
+uuid: 88332d12-6c1d-4273-b6dc-bc0dd7c00ea7
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.field_what_key_decisions_are_bei
-field_name: field_what_key_decisions_are_bei
+id: node.field_description
+field_name: field_description
 entity_type: node
 type: string_long
 settings:

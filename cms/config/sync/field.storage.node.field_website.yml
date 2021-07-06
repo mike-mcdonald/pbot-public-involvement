@@ -1,14 +1,16 @@
-uuid: 9f5651cd-775a-4e2b-a3ac-2fe525b0c0d7
+uuid: 4eef22a1-ca8e-4b51-ba0d-5a159fa91fc7
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.field_what_are_the_intended_outc
-field_name: field_what_are_the_intended_outc
+id: node.field_website
+field_name: field_website
 entity_type: node
-type: string_long
+type: string
 settings:
+  max_length: 255
+  is_ascii: false
   case_sensitive: false
 module: core
 locked: false

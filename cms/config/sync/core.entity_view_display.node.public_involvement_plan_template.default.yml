@@ -9,23 +9,23 @@ dependencies:
     - field.field.node.public_involvement_plan_template.field_impact_level
     - field.field.node.public_involvement_plan_template.field_interest_level
     - field.field.node.public_involvement_plan_template.field_legal_requirements
-    - field.field.node.public_involvement_plan_template.field_legal_requirements_y_n_
-    - field.field.node.public_involvement_plan_template.field_partners_government_organi
-    - field.field.node.public_involvement_plan_template.field_please_describe_the_overal
-    - field.field.node.public_involvement_plan_template.field_project_manger_key_staff
-    - field.field.node.public_involvement_plan_template.field_project_website_link
-    - field.field.node.public_involvement_plan_template.field_promise_to_the_public
-    - field.field.node.public_involvement_plan_template.field_public_input_is_needed_for
-    - field.field.node.public_involvement_plan_template.field_public_involvement_timefra
-    - field.field.node.public_involvement_plan_template.field_public_involvement_will_ad
-    - field.field.node.public_involvement_plan_template.field_qual_promise_to_public
+    - field.field.node.public_involvement_plan_template.field_legal_mandate
+    - field.field.node.public_involvement_plan_template.field_partners
+    - field.field.node.public_involvement_plan_template.field_description
+    - field.field.node.public_involvement_plan_template.field_staff
+    - field.field.node.public_involvement_plan_template.field_website
+    - field.field.node.public_involvement_plan_template.field_public_promise
+    - field.field.node.public_involvement_plan_template.field_questions
+    - field.field.node.public_involvement_plan_template.field_timeframe
+    - field.field.node.public_involvement_plan_template.field_benefit
+    - field.field.node.public_involvement_plan_template.field_promise_description
     - field.field.node.public_involvement_plan_template.field_related_documents
-    - field.field.node.public_involvement_plan_template.field_stakeholder_involvement_st
+    - field.field.node.public_involvement_plan_template.field_strategy
     - field.field.node.public_involvement_plan_template.field_tags
-    - field.field.node.public_involvement_plan_template.field_what_are_the_intended_outc
-    - field.field.node.public_involvement_plan_template.field_what_is_the_impact_of_this
-    - field.field.node.public_involvement_plan_template.field_what_is_the_interest_in_th
-    - field.field.node.public_involvement_plan_template.field_what_key_decisions_are_bei
+    - field.field.node.public_involvement_plan_template.field_intended_outcomes
+    - field.field.node.public_involvement_plan_template.field_impact_description
+    - field.field.node.public_involvement_plan_template.field_interest_description
+    - field.field.node.public_involvement_plan_template.field_key_decision
     - node.type.public_involvement_plan_template
   module:
     - ds
@@ -47,14 +47,14 @@ third_party_settings:
         - node_title
         - field_division_section_res
         - field_consultant_if_applicable_
-        - field_public_input_is_needed_for
-        - field_what_key_decisions_are_bei
+        - field_questions
+        - field_key_decision
         - field_intended_outcomes_or_objec
         - field_interest_level
         - field_impact_level
-        - field_public_involvement_will_ad
-        - field_stakeholder_involvement_st
-        - field_promise_to_the_public
+        - field_benefit
+        - field_strategy
+        - field_public_promise
     fields:
       node_title:
         plugin_id: node_title
@@ -113,35 +113,35 @@ content:
     third_party_settings: {  }
     type: basic_string
     region: content
-  field_legal_requirements_y_n_:
+  field_legal_mandate:
     weight: 16
     label: above
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
-  field_partners_government_organi:
+  field_partners:
     weight: 21
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
-  field_please_describe_the_overal:
+  field_description:
     weight: 23
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
-  field_project_manger_key_staff:
+  field_staff:
     weight: 24
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
-  field_project_website_link:
+  field_website:
     weight: 29
     label: above
     settings:
@@ -149,21 +149,21 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  field_promise_to_the_public:
+  field_public_promise:
     weight: 10
     label: above
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
-  field_public_input_is_needed_for:
+  field_questions:
     weight: 3
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
-  field_public_involvement_timefra:
+  field_timeframe:
     type: entity_reference_revisions_entity_view
     weight: 25
     label: above
@@ -172,14 +172,14 @@ content:
       link: ''
     third_party_settings: {  }
     region: content
-  field_public_involvement_will_ad:
+  field_benefit:
     type: basic_string
     weight: 8
     region: content
     label: above
     settings: {  }
     third_party_settings: {  }
-  field_qual_promise_to_public:
+  field_promise_description:
     weight: 32
     label: above
     settings: {  }
@@ -193,7 +193,7 @@ content:
     third_party_settings: {  }
     type: file_default
     region: content
-  field_stakeholder_involvement_st:
+  field_strategy:
     type: paragraph_summary
     weight: 9
     region: content
@@ -208,28 +208,28 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-  field_what_are_the_intended_outc:
+  field_intended_outcomes:
     weight: 14
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
-  field_what_is_the_impact_of_this:
+  field_impact_description:
     weight: 17
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
-  field_what_is_the_interest_in_th:
+  field_interest_description:
     weight: 18
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
-  field_what_key_decisions_are_bei:
+  field_key_decision:
     type: basic_string
     weight: 4
     region: content
