@@ -112,7 +112,13 @@ jobs:
             composer-build-v3-
 
       - name: Build full image
-        run: docker build -t $REPOSITORY/fpm -f ./.github/docker/Dockerfile ./cms
+        run: |
+          docker build \
+          -t $REPOSITORY/fpm \
+          -f ./.github/docker/Dockerfile \
+          --build-arg USER=www-data
+          --build-arg GROUP=www-data
+          ./cms
 
       - name: Save full image
         run: docker save $REPOSITORY/fpm | gzip > ./.docker/images/fpm/full.tar.gz
@@ -178,7 +184,13 @@ jobs:
             composer-build-v3-
 
       - name: Build full image
-        run: docker build -t $REPOSITORY/nginx -f ./.github/docker/Dockerfile ./cms
+        run: |
+          docker build \
+          -t $REPOSITORY/nginx \
+          -f ./.github/docker/Dockerfile \
+          --build-arg USER=root
+          --build-arg GROUP=www-data
+          ./cms
 
       - name: Save full image
         run: docker save $REPOSITORY/nginx | gzip > ./.docker/images/nginx/full.tar.gz
