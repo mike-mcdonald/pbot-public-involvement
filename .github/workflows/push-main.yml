@@ -124,9 +124,11 @@ jobs:
           extensions: gd
 
       - name: Update composer
+        working-directory: ./cms
         run: composer --verbose self-update --stable
 
       - name: Install dependencies
+        working-directory: ./cms
         run: composer --verbose --no-dev install
 
       - name: Build full image
@@ -211,9 +213,11 @@ jobs:
           extensions: gd
 
       - name: Update composer
+        working-directory: ./cms
         run: composer --verbose self-update --stable
 
       - name: Install dependencies
+        working-directory: ./cms
         run: composer --verbose --no-dev install
 
       - name: Build full image
