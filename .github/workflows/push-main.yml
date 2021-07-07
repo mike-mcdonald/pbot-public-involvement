@@ -32,11 +32,14 @@ jobs:
         with:
           path: |
             ./cms/vendor
-            ./cms/web
-          key: composer-build-v3-${{ env.cache-name }}-${{ hashFiles('./cms/composer.lock') }}
+            ./cms/web/core
+            ./cms/web/modules/contrib
+            ./cms/web/profiles/contrib
+            ./cms/web/themes/contrib
+          key: composer-build-v4-${{ env.cache-name }}-${{ hashFiles('./cms/composer.lock') }}
           restore-keys: |
-            composer-build-v3-${{ env.cache-name }}-
-            composer-build-v3-
+            composer-build-v4-${{ env.cache-name }}-
+            composer-build-v4-
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -105,11 +108,26 @@ jobs:
         with:
           path: |
             ./cms/vendor
-            ./cms/web
-          key: composer-build-v3-${{ env.cache-name }}-${{ hashFiles('./cms/composer.lock') }}
+            ./cms/web/core
+            ./cms/web/modules/contrib
+            ./cms/web/profiles/contrib
+            ./cms/web/themes/contrib
+          key: composer-build-v4-${{ env.cache-name }}-${{ hashFiles('./cms/composer.lock') }}
           restore-keys: |
-            composer-build-v3-${{ env.cache-name }}-
-            composer-build-v3-
+            composer-build-v4-${{ env.cache-name }}-
+            composer-build-v4-
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
+          extensions: gd
+
+      - name: Update composer
+        run: composer --verbose self-update --stable
+
+      - name: Install dependencies
+        run: composer --verbose --no-dev install
 
       - name: Build full image
         run: |
@@ -177,11 +195,26 @@ jobs:
         with:
           path: |
             ./cms/vendor
-            ./cms/web
-          key: composer-build-v3-${{ env.cache-name }}-${{ hashFiles('./cms/composer.lock') }}
+            ./cms/web/core
+            ./cms/web/modules/contrib
+            ./cms/web/profiles/contrib
+            ./cms/web/themes/contrib
+          key: composer-build-v4-${{ env.cache-name }}-${{ hashFiles('./cms/composer.lock') }}
           restore-keys: |
-            composer-build-v3-${{ env.cache-name }}-
-            composer-build-v3-
+            composer-build-v4-${{ env.cache-name }}-
+            composer-build-v4-
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
+          extensions: gd
+
+      - name: Update composer
+        run: composer --verbose self-update --stable
+
+      - name: Install dependencies
+        run: composer --verbose --no-dev install
 
       - name: Build full image
         run: |
