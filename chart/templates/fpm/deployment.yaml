@@ -70,7 +70,11 @@ spec:
             - name: {{ include "chart.fullname" . }}-fpm
               mountPath: /var/www/html/web/sites/default/files
             - name: oauth-keys
-              mountPath: /var/www/html
+              mountPath: /var/www/html/public.key
+              subPath: public.key
+            - name: oauth-keys
+              mountPath: /var/www/html/private.key
+              subPath: private.key
           ports:
             - name: fpm
               containerPort: 9000
@@ -83,12 +87,12 @@ spec:
             claimName: {{ include "chart.fullname" . }}-files
         - name: oauth-keys
           secret:
-          secretName: {{ include "chart.fullname" . }}-fpm
-          items:
-            - key: public.key
-              path: public.key
-            - key: private.key
-              path: private.key
+            secretName: {{ include "chart.fullname" . }}-fpm
+            items:
+              - key: public.key
+                path: public.key
+              - key: private.key
+                path: private.key
       {{- with .Values.fpm.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
