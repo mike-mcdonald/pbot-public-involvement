@@ -226,7 +226,7 @@ jobs:
           -t $REPOSITORY/nginx \
           -f ./.github/docker/Dockerfile \
           --build-arg USER=root \
-          --build-arg GROUP=www-data \
+          --build-arg GROUP=nginx \
           ./cms
 
       - name: Save full image
